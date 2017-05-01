@@ -16,6 +16,10 @@ module.exports = {
         reasons: true,
         chunks: true
     },
+    node: {
+        __filename: true,
+        __dirname: true
+    },
     target: "node",
     module: {
         rules: [

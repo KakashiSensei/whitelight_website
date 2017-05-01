@@ -6,15 +6,14 @@ import Routes from "./src/react/Routes";
 var path = require('path');
 
 var app = express();
-app.use('/files',express.static(path.join(__dirname, 'dist')));
-// universal routing and rendering
+app.use(express.static(path.join(__dirname, 'dist')));
 app.get('*', (req, res) => {
     const context = {};
     console.log(req.get('host'));
     console.log(req.params)
     const markup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
-            <Routes/>
+            <Routes />
         </StaticRouter>
     )
 
@@ -27,6 +26,15 @@ function renderPage(appHtml) {
     <html>
     <body>
     <div id=app>${appHtml}</div>
+    <script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1778022462419350";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
     <script src="/bundle.js"></script>
     </body>
     </html>

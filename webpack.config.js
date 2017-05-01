@@ -16,6 +16,9 @@ module.exports = {
         reasons: true,
         chunks: true
     },
+    devServer: {
+        publicPath: "/dist"
+    },
     module: {
         rules: [
             {
@@ -44,7 +47,7 @@ module.exports = {
                 loader: "url-loader?limit=10000&mimetype=application/font-woff&name=src/asset/font/[name].[ext]"
             },
             {
-                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                test: /\.(ttf|eot|otf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader?name=src/asset/font/[name].[ext]"
             }
         ]

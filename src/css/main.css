@@ -1,3 +1,41 @@
-body {
-    font-size: 44px;
+*{
+    box-sizing: border-box;
 }
+
+body {
+    color: #ecf0f1;
+}
+
+.navbar{
+    padding: 0px;
+    margin: 0px;
+}
+
+.brand-font a{
+    font-family: "Molleat";
+    font-size: 25px;
+    color: #622F92;
+}
+
+.centerAlign{
+    text-align: center;
+}
+
+.topic{
+    font-size: 25px;
+    color: #622F92;
+}
+
+.jumbotron{
+    padding: 0px;
+    overflow: hidden;
+}
+
+.imageSize{
+    width: 100%;
+}
+
+.cardSize{
+    width: 300px;
+}
+

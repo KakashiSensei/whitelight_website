@@ -1,7 +1,7 @@
 import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import StaticRouter from "react-router";
+import {StaticRouter} from "react-router";
 import Routes from "./src/react/Routes";
 import path from 'path';
 import Helmet from "react-helmet";
@@ -15,7 +15,6 @@ app.get('*', (req, res) => {
     console.log(req.params)
     const markup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
-            <Routes />
         </StaticRouter>
     )
     const helmet = Helmet.renderStatic();

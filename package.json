@@ -3,7 +3,8 @@
     "start": "BABEL_ENV='node' nodemon server.js --exec babel-node --presets es2015,react,stage-2",
     "watch": "nodemon serverDev.js",
     "build": "babel server.js -d dist",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "heroku": "webpack && webpack --config webpack.server.config && node serverDev.js"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

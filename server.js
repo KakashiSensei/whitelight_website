@@ -1,7 +1,7 @@
 import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import {StaticRouter} from "react-router";
+import { StaticRouter } from "react-router";
 import Routes from "./src/react/Routes";
 import path from 'path';
 import Helmet from "react-helmet";
@@ -21,12 +21,15 @@ app.get('*', (req, res) => {
     const helmet = Helmet.renderStatic();
 
     // render the index template with the embedded React markup
-    return res.send(renderPage(markup));
+    let renderedPage = renderPage(markup, helmet);
+    return res.send(renderedPage);
 });
 
-function renderPage(appHtml) {
+function renderPage(appHtml, helmet) {
     return `
     <html>
+    ${helmet.title.toString()}
+    ${helmet.meta.toString()}
     <body>
     <div id=app>${appHtml}</div>
     <script>

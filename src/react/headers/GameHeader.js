@@ -8,7 +8,7 @@ export default class GameHeader extends Component {
     }
 
     render() {
-        let imageURL = this.props.introImage;
+        let imageURL = this.props.imageURL;
         let title = this.props.title
         let website = this.props.url;
         return (

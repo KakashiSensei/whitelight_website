@@ -24,7 +24,6 @@ app.get('*', (req, res) => {
 });
 
 function renderPage(appHtml) {
-
     return `
     <html>
     <body>

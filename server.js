@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 });
 
 function renderPage(appHtml) {
-    
+
     return `
     <html>
     <body>
@@ -47,7 +47,7 @@ function renderPage(appHtml) {
 if (typeof window === 'undefined') {
     global.window = {}
 }
-var PORT = 8080;
+var PORT = process.env.PORT || 8080
 app.listen(PORT, function () {
     console.log("App running on", "localhost:" + PORT);
 })

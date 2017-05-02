@@ -47,7 +47,8 @@ function renderPage(appHtml) {
 if (typeof window === 'undefined') {
     global.window = {}
 }
-var PORT = process.env.PORT || 8080
+console.log("Dynamic port", process.env.PORT);
+var PORT = process.env.PORT || 5000
 app.listen(PORT, function () {
     console.log("App running on", "localhost:" + PORT);
 })

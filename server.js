@@ -15,6 +15,7 @@ app.get('*', (req, res) => {
     console.log(req.params)
     const markup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
+            <Routes />
         </StaticRouter>
     )
     const helmet = Helmet.renderStatic();

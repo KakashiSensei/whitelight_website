@@ -8,7 +8,7 @@ import fetch from 'isomorphic-fetch';
 import CardDeckComp from "../components/CardDeckComp";
 import { Redirect } from "react-router-dom";
 import HomeHeader from "../headers/HomeHeader";
-
+console.log("Browser Env",process.env.BROWSER);
 if (process.env.BROWSER) {
     require('../../css');
     require('../../asset/font/Molleat.otf');

@@ -1,12 +1,13 @@
-var express = require("express");
-var React = require("react");
-var ReactDOMServer = require("react-dom/server");
-import { match, RouterContext, StaticRouter } from "react-router";
+import express from "express";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import StaticRouter from "react-router";
 import Routes from "./src/react/Routes";
-var path = require('path');
-import { Helmet } from "react-helmet";
+import path from 'path';
+import Helmet from "react-helmet";
+// import config from 'config';
 
-var app = express();
+const app = express();
 app.use(express.static(path.join(__dirname, 'dist')));
 app.get('*', (req, res) => {
     const context = {};

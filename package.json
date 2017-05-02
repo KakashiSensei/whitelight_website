@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "BABEL_ENV='node' nodemon server.js --exec babel-node --presets es2015,react,stage-2",
+    "start": "BABEL_ENV='node' node server.js --exec babel-node --presets es2015,react,stage-2",
     "watch": "nodemon serverDev.js",
     "dev": "webpack-dev-server",
     "build": "webpack && webpack --config webpack.server.config",
@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-social": "^5.1.1",
+    "config": "^1.25.1",
     "es6-promise": "^4.1.0",
     "express": "^4.15.2",
     "history": "^4.6.1",

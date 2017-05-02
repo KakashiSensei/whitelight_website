@@ -4,6 +4,7 @@ var ReactDOMServer = require("react-dom/server");
 import { match, RouterContext, StaticRouter } from "react-router";
 import Routes from "./src/react/Routes";
 var path = require('path');
+import { Helmet } from "react-helmet";
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -16,6 +17,7 @@ app.get('*', (req, res) => {
             <Routes />
         </StaticRouter>
     )
+    const helmet = Helmet.renderStatic();
 
     // render the index template with the embedded React markup
     return res.send(renderPage(markup));

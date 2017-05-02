@@ -24,6 +24,12 @@ body {
 .topic{
     font-size: 25px;
     color: #622F92;
+    margin-bottom: 20px;
+}
+
+.questionTitle{
+    font-size: 17px;
+    color: black;
 }
 
 .jumbotron{
@@ -37,5 +43,9 @@ body {
 
 .cardSize{
     width: 300px;
+}
+
+.rollOver{
+    cursor: pointer;
 }
 

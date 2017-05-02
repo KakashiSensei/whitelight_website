@@ -6,6 +6,8 @@ import * as config from "../../config";
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 import CardDeckComp from "../components/CardDeckComp";
+import { Redirect } from "react-router-dom";
+import HomeHeader from "../headers/HomeHeader";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -17,8 +19,16 @@ export default class HomePage extends Component {
         super(props);
         this.state = {
             "games": null,
-            "fbLoaded": false
+            "fbLoaded": false,
+            "redirectURL": null,
         }
+    }
+
+    cardClicked(url) {
+        //redirect to other link
+        this.setState({
+            "redirectURL": url
+        })
     }
 
     componentDidMount() {
@@ -26,27 +36,40 @@ export default class HomePage extends Component {
         let promise = fetch(gameUrl, { method: 'GET' })
             .then(res => res.json())
         promise.then((data) => {
-            this.setState({ "games": data })
+            let gamesArray = [];
+            data.forEach(function (element) {
+                let gameData = {};
+                gameData["id"] = element._id;
+                gameData["introImage"] = element.introImage;
+                gameData["title"] = element.title;
+                gamesArray.push(gameData);
+            }, this);
+            this.setState({ "games": gamesArray })
         })
 
         // loading the facebook plugin after FB is loaded
-        if(window.FB){
-            this.setState({fbLoaded: true});
-        }else{
+        if (window.FB) {
+            this.setState({ fbLoaded: true });
+        } else {
             document.addEventListener('fb_init', (e) => {
                 FB.XFBML.parse()
-                this.setState({fbLoaded: true});
+                this.setState({ fbLoaded: true });
             });
         }
     }
 
     render() {
+        if(this.state.redirectURL){
+            return <Redirect push to={this.state.redirectURL} />;
+        }
+
         let facebookPlugin = <div></div>;
         if (this.state.fbLoaded) {
             facebookPlugin = <FacebookPagePlugin />
         }
         return (
             <div>
+                <HomeHeader />
                 <NavBarComp />
                 <JumbotronComp />
                 <div className="container">
@@ -56,7 +79,7 @@ export default class HomePage extends Component {
                                 Play Games
                             </div>
                             <div>
-                                <CardDeckComp/>
+                                <CardDeckComp games={this.state.games} callBackFunction={this.cardClicked.bind(this)}/>
                             </div>
 
                         </div>

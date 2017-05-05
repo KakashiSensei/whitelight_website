@@ -24,6 +24,7 @@ export default class GameHeader extends Component {
                 <meta property="og:site_name" content={config.website} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={website} />
+                <meta property="og:image" content="https://support.apple.com/content/dam/edam/applecare/images/en_US/iphone/featured-content-iphone-transfer-content-ios10_2x.png" />
             </Helmet>
         )
     }

@@ -8,21 +8,5 @@
         "transform-class-properties",
         "transform-decorators",
         "transform-object-rest-spread"
-    ],
-    "env": {
-        "node": {
-            "plugins": [
-                [
-                    "babel-plugin-transform-require-ignore",
-                    {
-                        "extensions": [
-                            ".less",
-                            ".css",
-                            ".png"
-                        ]
-                    }
-                ]
-            ]
-        }
-    }
+    ]
 }

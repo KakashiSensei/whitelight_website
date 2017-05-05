@@ -42,7 +42,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif)$/i,
                 loader: "file-loader?name=src/asset/[name].[ext]"
             },
             {
@@ -61,7 +61,4 @@ module.exports = {
             "process.env.BROWSER": JSON.stringify(false)
         }),
     ],
-    externals: {
-        "config": "config/production.json"
-    }
 }

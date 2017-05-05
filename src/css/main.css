@@ -3,10 +3,12 @@
 }
 
 body {
-    color: #ecf0f1;
+    background-color: #CCCCCC;
+    color: black;
 }
 
 .navbar{
+    background-color: #FFFFFF;
     padding: 0px;
     margin: 0px;
 }
@@ -29,7 +31,6 @@ body {
 
 .questionTitle{
     font-size: 17px;
-    color: black;
 }
 
 .jumbotron{
@@ -49,3 +50,25 @@ body {
     cursor: pointer;
 }
 
+.gameContainer{
+    margin: 50px;
+}
+
+.gameImageContainer{
+    height: 350px
+}
+.gameTitle{
+    font-size: 24px;
+    margin: 10px;
+}
+
+.imageSize{
+    max-width:100%;
+    max-height:100%;
+    object-fit: contain;
+}
+
+.loginButton {
+    color: #FFFFFF;
+    background-color: #3B5998;
+}

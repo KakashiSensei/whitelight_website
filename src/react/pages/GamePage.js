@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import GameHeader from "../headers/GameHeader";
+import * as Requests from "../Requests";
+import GameQuestionComp from "../components/GameQuestionComp";
+import NavBarComp from "../components/NavBarComp";
+
+if (process.env.BROWSER) {
+    require('../../css');
+}
 
 export default class HomePage extends Component {
     title;
     gameID;
+    introImage;
 
     constructor(props) {
         super(props);
@@ -15,20 +23,42 @@ export default class HomePage extends Component {
 
         this.gameID = pathName.split("/").pop();
         this.state = {
-            introImage: null,
-            title: null,
+            questionLoaded: false,
         }
     }
 
     componentDidMount() {
-
+        Requests.getGame(this.gameID)
+            .then((data) => {
+                this.title = data.title;
+                this.gameID = data._id;
+                this.introImage = data.introImage;
+                this.setState({
+                    questionLoaded: true
+                })
+            })
     }
 
     render() {
+        let questionContainer = <div></div>;
+        if (this.state.questionLoaded) {
+            questionContainer = (
+                <GameQuestionComp id={this.gameID} title={this.title} introImage={this.introImage} />
+            )
+        }
+
         return (
             <div>
-                <GameHeader title={this.title} imageURL="https://cdn.psychologytoday.com/sites/default/files/blogs/1023/2013/01/115847-113843.jpg" url={this.props.location.pathname}/>
-                GamePage
+                <GameHeader title={this.title} url={this.props.location.pathname} />
+                <NavBarComp />
+                <div className="row">
+                    <div className="col-md-9">
+                        {questionContainer}
+                    </div>
+                    <div className="col-md-3">
+                        {/*<RecommendedGames />*/}
+                    </div>
+                </div>
             </div>
         )
     }

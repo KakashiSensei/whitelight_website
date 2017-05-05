@@ -4,11 +4,11 @@ import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import JumbotronComp from "../components/JumbotronComp";
 import * as config from "../../config";
 require('es6-promise').polyfill();
-import fetch from 'isomorphic-fetch';
 import CardDeckComp from "../components/CardDeckComp";
 import { Redirect } from "react-router-dom";
 import HomeHeader from "../headers/HomeHeader";
-console.log("Browser Env",process.env.BROWSER);
+import * as Requests from "../Requests";
+
 if (process.env.BROWSER) {
     require('../../css');
     require('../../asset/font/Molleat.otf');
@@ -32,20 +32,18 @@ export default class HomePage extends Component {
     }
 
     componentDidMount() {
-        let gameUrl = config.domainName + '/api/game';
-        let promise = fetch(gameUrl, { method: 'GET' })
-            .then(res => res.json())
-        promise.then((data) => {
-            let gamesArray = [];
-            data.forEach(function (element) {
-                let gameData = {};
-                gameData["id"] = element._id;
-                gameData["introImage"] = element.introImage;
-                gameData["title"] = element.title;
-                gamesArray.push(gameData);
-            }, this);
-            this.setState({ "games": gamesArray })
-        })
+        Requests.getAllGames()
+            .then((data) => {
+                let gamesArray = [];
+                data.forEach(function (element) {
+                    let gameData = {};
+                    gameData["id"] = element._id;
+                    gameData["introImage"] = element.introImage;
+                    gameData["title"] = element.title;
+                    gamesArray.push(gameData);
+                }, this);
+                this.setState({ "games": gamesArray })
+            })
 
         // loading the facebook plugin after FB is loaded
         if (window.FB) {
@@ -59,7 +57,7 @@ export default class HomePage extends Component {
     }
 
     render() {
-        if(this.state.redirectURL){
+        if (this.state.redirectURL) {
             return <Redirect push to={this.state.redirectURL} />;
         }
 
@@ -79,7 +77,7 @@ export default class HomePage extends Component {
                                 Play Games
                             </div>
                             <div>
-                                <CardDeckComp games={this.state.games} callBackFunction={this.cardClicked.bind(this)}/>
+                                <CardDeckComp games={this.state.games} callBackFunction={this.cardClicked.bind(this)} />
                             </div>
 
                         </div>

@@ -8,7 +8,6 @@ export default class GameHeader extends Component {
     }
 
     render() {
-        let imageURL = this.props.imageURL;
         let title = this.props.title
         let website = this.props.url;
         return (
@@ -25,7 +24,6 @@ export default class GameHeader extends Component {
                 <meta property="og:site_name" content={config.website} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={website} />
-                <meta property="og:image" content={imageURL} />
             </Helmet>
         )
     }

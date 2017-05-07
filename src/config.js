@@ -1,3 +1,4 @@
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 exports.domainName = process.env.NODE_ENV !== 'production' ? "http://localhost:3000" : "https://white-light-rest-api.herokuapp.com";
 exports.storageContainer = "https://s3-us-west-2.amazonaws.com/whitelightimages";
 exports.appID = "399964337042548";

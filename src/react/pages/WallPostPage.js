@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import ResultHeader from "../headers/ResultHeader";
 import * as  AppHelper from "../helper/AppHelper";
 import NavBarComp from "../components/NavBarComp";
+import GameQuestionComp from "../components/GameQuestionComp";
+import * as config from "../../config";
+import * as Requests from "../Requests";
 
 export default class WallPostPage extends Component {
     title;
     gameID;
     introImage;
     imageFullPath;
+    fullURL;
 
     constructor(props) {
         super(props);
@@ -17,6 +21,7 @@ export default class WallPostPage extends Component {
         this.imageFullPath = config.storageContainer + "/" + imageName;
         this.title = urlParams["title"];
         this.gameID = pathName.split("/").pop();
+        this.fullURL = config.website + this.props.location.pathname + this.props.location.search;
         this.state = {
             questionLoaded: false,
             showLoader: false,

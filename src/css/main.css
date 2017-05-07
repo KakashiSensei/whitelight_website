@@ -50,16 +50,21 @@ body {
     cursor: pointer;
 }
 
-.gameContainer{
-    margin: 50px;
+.gameContainer {
+    background-color: #FFFFFF;
+    margin: 30px;
+}
+
+.gameOuterMargin {
+    margin: 30px;
 }
 
 .gameImageContainer{
-    height: 350px
+    height: 350px;
 }
 .gameTitle{
     font-size: 24px;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 .imageSize{
@@ -68,7 +73,14 @@ body {
     object-fit: contain;
 }
 
-.loginButton {
+.loginButton, .loginButton:hover {
     color: #FFFFFF;
     background-color: #3B5998;
+    margin-top: 20px;
+}
+
+.loginIcon {
+    padding-right: 10px;
+    position: relative;
+    top:3px;
 }

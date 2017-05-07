@@ -3,10 +3,10 @@ import { PropTypes } from "prop-types";
 import config from "../../config";
 import { Button } from 'reactstrap';
 
-export default class GameQuestionComp extends Component {
+export default class ImageResultComp extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
-        introImage: PropTypes.string.isRequired,
+        resultImage: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         callbackFunction: PropTypes.func.isRequired
     }
@@ -25,14 +25,14 @@ export default class GameQuestionComp extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-12 centerAlign gameImageContainer">
-                        <img className="imageSize" src={this.props.introImage} />
+                        <img className="imageSize" src={this.props.resultImage}></img>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-4 col-md-push-4 centerAlign">
                         <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
                             <span className="facebookIcon loginIcon"></span>
-                            <span>Login with Facebook</span>
+                            <span>Share on Facebook</span>
                         </Button>
                     </div>
                 </div>

@@ -25,7 +25,8 @@ export default class ResultPage extends Component {
     }
 
     shareClicked(e){
-        let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName;
+        let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName + "&title=" + this.title;
+        console.log("Share URL", shareURL);
         FB.ui({
             method: 'share',
             display: 'popup',

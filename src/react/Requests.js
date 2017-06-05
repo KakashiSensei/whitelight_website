@@ -15,9 +15,7 @@ exports.getGame = (gameID) => {
 
 exports.getGameResult = (userID, accessToken, gameID) => {
     let url = config.domainName + "/api/game/" + gameID;
-    console.log("Image URL", url);
     let data = { userid: userID, token: accessToken, questionID: gameID };
-    console.log(data);
     return fetch(url, {
         method: 'POST',
         headers: {

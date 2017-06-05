@@ -215,7 +215,7 @@ eval("/**\n * Copyright 2013-present, Facebook, Inc.\n * All rights reserved.\n 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nexports.domainName = \"https://white-light-rest-api.herokuapp.com\";\n// exports.domainName = \"http://localhost:3000\";\nexports.storageContainer = \"https://s3-us-west-2.amazonaws.com/whitelightimages\";\nexports.appID = \"399964337042548\";\nexports.adminID = \"4818530757899\";\nexports.website = \"whitelight.social\";\nexports.scope = \"public_profile,email,user_photos,user_relationships\";\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/config.js\n// module id = 21\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/config.js?");
+eval("\n\nexports.domainName = \"https://white-light-rest-api.herokuapp.com\";\n// exports.domainName = \"http://localhost:3000\";\nexports.storageContainer = \"https://s3-us-west-2.amazonaws.com/whitelightimages\";\nexports.appID = \"399964337042548\";\nexports.adminID = \"4818530757899\";\n// exports.website = \"whitelight.social\";\nexports.website = \"whitelight-website.herokuapp.com\";\nexports.scope = \"public_profile,email,user_photos,user_relationships\";\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/config.js\n// module id = 21\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/config.js?");
 
 /***/ }),
 /* 22 */

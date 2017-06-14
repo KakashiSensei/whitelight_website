@@ -46,11 +46,6 @@ function renderPage(appHtml, helmet) {
    `
 }
 
-if (typeof window === 'undefined') {
-    global.window = {}
-}
-
-console.log("Dynamic port", process.env.PORT);
 var PORT = process.env.PORT || 8004;
 app.listen(PORT, function () {
     console.log("App running on", "localhost:" + PORT);

@@ -8,6 +8,7 @@ import CardDeckComp from "../components/CardDeckComp";
 import { Redirect } from "react-router-dom";
 import HomeHeader from "../headers/HomeHeader";
 import * as Requests from "../Requests";
+import FooterComp from "../components/FooterComp";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -35,13 +36,13 @@ export default class HomePage extends Component {
         Requests.getAllGames()
             .then((data) => {
                 let gamesArray = [];
-                data.forEach(function (element) {
+                data.forEach((element) => {
                     let gameData = {};
                     gameData["id"] = element._id;
                     gameData["introImage"] = element.introImage;
                     gameData["title"] = element.title;
                     gamesArray.push(gameData);
-                }, this);
+                });
                 this.setState({ "games": gamesArray })
             })
 
@@ -68,12 +69,11 @@ export default class HomePage extends Component {
         return (
             <div>
                 <HomeHeader />
-                <NavBarComp />
                 <JumbotronComp />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">
-                            <div className="centerAlign topic">
+                            <div className="topic">
                                 Play Games
                             </div>
                             <div>
@@ -81,7 +81,7 @@ export default class HomePage extends Component {
                             </div>
 
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-3 recommendedMargin">
                             {facebookPlugin}
                         </div>
                     </div>

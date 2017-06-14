@@ -1,16 +1,22 @@
 *{
     box-sizing: border-box;
 }
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: #622F92;
+}
 
 body {
-    background-color: #CCCCCC;
-    color: black;
+    background-color: #FFFFFF;
 }
 
 .navbar{
     background-color: #FFFFFF;
     padding: 0px;
     margin: 0px;
+    -webkit-box-shadow: 0 6px 6px -6px #999;
+    -moz-box-shadow: 0 6px 6px -6px #999;
+    box-shadow: 0 6px 6px -6px #999;
 }
 
 .brand-font a{
@@ -24,7 +30,7 @@ body {
 }
 
 .topic{
-    font-size: 25px;
+    font-size: 18px;
     color: #622F92;
     margin-bottom: 20px;
 }
@@ -83,4 +89,24 @@ body {
     padding-right: 10px;
     position: relative;
     top:3px;
+}
+
+.footerBody {
+    min-height: 400px
+}
+
+.marginLinkFooter {
+    margin: 20px
+}
+
+.footerDisclamerColor {
+    color: #999999
+}
+
+.footerTopMargin{
+    margin-top: 50px 
+}
+
+.recommendedMargin{
+    margin-top: 50px;
 }

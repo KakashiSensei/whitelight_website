@@ -5,3 +5,7 @@
 .jumbotronImage {
     content:url("/src/asset/bgimage.png");
 }
+
+.footerImage {
+    background-image: url("/src/asset/footerImage.png");
+}

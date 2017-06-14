@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
-import NavBarComp from "../components/NavBarComp";
 import { Redirect } from 'react-router';
 import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
@@ -98,7 +97,6 @@ export default class HomePage extends Component {
         return (
             <div>
                 <GameHeader title={this.title} url={this.props.location} />
-                <NavBarComp />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9 gameContainer">

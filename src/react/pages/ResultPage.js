@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ResultHeader from "../headers/ResultHeader";
 import * as  AppHelper from "../helper/AppHelper";
-import NavBarComp from "../components/NavBarComp";
 import * as config from "../../config";
 import ImageResultComp from "../components/ImageResultComp";
 
@@ -38,7 +37,6 @@ export default class ResultPage extends Component {
         return (
             <div>
                 <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
-                <NavBarComp />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9 gameContainer centerAlign">

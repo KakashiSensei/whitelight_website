@@ -6,6 +6,9 @@ import {
 import Routes from "./Routes";
 import createHistory from 'history/createBrowserHistory';
 if (process.env.BROWSER) {
+    require('../asset/bgimage.png');
+    require('../asset/footerImage.png');
+    require('../asset/f_logo_with_white_back.png');
     require('../css');
     require('../asset/font/Molleat.otf');
     require('../asset/font/fontawesome-webfont.woff2');

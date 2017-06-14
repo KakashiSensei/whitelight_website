@@ -7,7 +7,7 @@ export default class NavBarComp extends Component {
             <Navbar className="brand-font">
                 <div className="container">
                     <div className="row">
-                        <NavbarBrand href="/" className="">White Light</NavbarBrand>
+                        <NavbarBrand href="/">White Light</NavbarBrand>
                     </div>
                 </div>
             </Navbar>

@@ -110,3 +110,8 @@ body {
 .recommendedMargin{
     margin-top: 50px;
 }
+
+.iframeProp{
+    border:none;
+    overflow:hidden;
+}

@@ -20,7 +20,6 @@ export default class HomePage extends Component {
         super(props);
         this.state = {
             "games": null,
-            "fbLoaded": false,
             "redirectURL": null,
         }
     }
@@ -45,27 +44,13 @@ export default class HomePage extends Component {
                 });
                 this.setState({ "games": gamesArray })
             })
-
-        // loading the facebook plugin after FB is loaded
-        if (window.FB) {
-            this.setState({ fbLoaded: true });
-        } else {
-            document.addEventListener('fb_init', (e) => {
-                FB.XFBML.parse()
-                this.setState({ fbLoaded: true });
-            });
-        }
     }
 
     render() {
         if (this.state.redirectURL) {
             return <Redirect push to={this.state.redirectURL} />;
         }
-
-        let facebookPlugin = <div></div>;
-        if (this.state.fbLoaded) {
-            facebookPlugin = <FacebookPagePlugin />
-        }
+        
         return (
             <div>
                 <HomeHeader />
@@ -82,7 +67,7 @@ export default class HomePage extends Component {
 
                         </div>
                         <div className="col-md-3 recommendedMargin">
-                            {facebookPlugin}
+                            <FacebookPagePlugin/>
                         </div>
                     </div>
                 </div>

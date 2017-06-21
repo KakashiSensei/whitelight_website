@@ -2,9 +2,10 @@
   "scripts": {
     "watch": "nodemon serverDev.js",
     "build": "webpack & webpack --config webpack.server.config",
-    "heroku": "npm run build && node serverDev.js",
+    "heroku": "node serverDev.js",
     "build:watch": "webpack --watch & webpack --config webpack.server.config --watch",
-    "dev": "webpack-dev-server --config webpack.server.config"
+    "dev": "webpack-dev-server --config webpack.server.config",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

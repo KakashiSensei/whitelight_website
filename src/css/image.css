@@ -8,4 +8,7 @@
 
 .footerImage {
     background-image: url("/src/asset/footerImage.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size:cover;
 }

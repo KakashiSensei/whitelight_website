@@ -17,23 +17,25 @@ export default class GameQuestionComp extends Component {
 
     render() {
         return (
-            <div className="gameOuterMargin">
-                <div className="row">
-                    <div className="col-md-12 centerAlign gameTitle">
-                        {this.props.title}
+            <div className="gameContainer addShadow">
+                <div className="gameOuterMargin">
+                    <div className="row">
+                        <div className="col-md-12 centerAlign gameTitle">
+                            {this.props.title}
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12 centerAlign gameImageContainer">
-                        <img className="imageSize" src={this.props.introImage} />
+                    <div className="row">
+                        <div className="col-md-12 centerAlign gameImageContainer">
+                            <img className="imageSize" src={this.props.introImage} />
+                        </div>
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-4 col-md-push-4 centerAlign">
-                        <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
-                            <span className="facebookIcon loginIcon"></span>
-                            <span>Login with Facebook</span>
-                        </Button>
+                    <div className="row">
+                        <div className="col-md-4 col-md-push-4 centerAlign">
+                            <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
+                                <span className="facebookIcon loginIcon"></span>
+                                <span>Login with Facebook</span>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -34,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.1",
     "html-webpack-exclude-assets-plugin": "^0.0.5",
     "nodemon": "^1.11.0",

@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
+import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import { Redirect } from 'react-router';
 import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
+import CardDeckComp from "../components/CardDeckComp";
+import FacebookHelper from "../helper/FacebookHelper";
+import LoaderComp from "../components/LoaderComp";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -18,14 +22,19 @@ export default class HomePage extends Component {
     constructor(props) {
         super(props);
         let pathName = this.props.location.pathname;
-        let urlParams = AppHelper.urlParams(this.props.location);
-        this.title = urlParams["title"];
-        this.gameID = pathName.split("/").pop();
+        this.setInitialState(pathName);
         this.state = {
             questionLoaded: false,
             showLoader: false,
-            redirectFlag: false
+            recommendedGames: [],
         }
+        this.cardClicked = this.cardClicked.bind(this);
+    }
+
+    setInitialState(pathName) {
+        let urlParams = AppHelper.urlParams(this.props.location);
+        this.title = urlParams["title"];
+        this.gameID = pathName.split("/").pop();
     }
 
     componentDidMount() {
@@ -37,7 +46,24 @@ export default class HomePage extends Component {
                 this.setState({
                     questionLoaded: true
                 })
+            });
+
+        Requests.getRecommendedGames(this.gameID)
+            .then((data) => {
+                this.setState({
+                    recommendedGames: data
+                })
             })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let pathName = nextProps.location.pathname;
+        let urlParams = AppHelper.urlParams(nextProps.location);
+        let gameID = pathName.split("/").pop();
+        if (this.gameID !== gameID) {
+            this.setInitialState(pathName);
+            this.componentDidMount();
+        }
     }
 
     callbackFunction() {
@@ -46,41 +72,24 @@ export default class HomePage extends Component {
             showLoader: true
         })
         //request for the game
-        FB.init({
-            appId: config.appID,
-            xfbml: true,
-            version: 'v2.8',
-            status: true
-        });
-        FB.login((response) => {
-            if (response.status === 'connected') {
-                var uid = response.authResponse.userID;
-                var accessToken = response.authResponse.accessToken;
+        FacebookHelper.loginFacebook((response) => {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
 
-                Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
-                    let name = res.Key;
-                    _this.setState({
-                        imageName: name,
-                        redirectFlag: true
-                    })
-                });
-            } else if (response.status === 'not_authorized') {
-                // the user is logged in to Facebook, 
-                // but has not authenticated your app
-            } else {
-                // the user isn't logged in to Facebook.
-            }
-        }, { scope: config.scope });
+            Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
+                let name = res.Key;
+                let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title;
+                _this.props.history.push(linkAddress);
+            });
+        });
+    }
+
+    cardClicked(url) {
+        this.props.history.push(url);
     }
 
     render() {
-        
-        if (this.state.redirectFlag) {
-            let linkAddress = "/game/result/" + this.gameID + "?image=" + this.state.imageName + "&title=" + this.title;
-            return <Redirect to={linkAddress} />;
-        }
-        
-        let questionContainer = <div></div>;
+        let questionContainer = <div className="falseSize addShadow"></div>;
         if (this.state.questionLoaded) {
             questionContainer = (
                 <GameQuestionComp id={this.gameID} title={this.title} introImage={this.introImage} callbackFunction={this.callbackFunction.bind(this)} />
@@ -88,8 +97,8 @@ export default class HomePage extends Component {
         }
         if (this.state.showLoader) {
             questionContainer = (
-                <div className="loaderHeight">
-                    <div className="loader">Loading...</div>
+                <div className="loaderHeight gameContainer addShadow">
+                    <LoaderComp />
                 </div>
             )
         }
@@ -99,11 +108,21 @@ export default class HomePage extends Component {
                 <GameHeader title={this.title} url={this.props.location} />
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-9 gameContainer">
+                        <div className="col-md-9">
                             {questionContainer}
+                            <div className="recommendedMargin">
+                                <div>
+                                    <div className="topic">
+                                        Play more games
+                                    </div>
+                                    <div>
+                                        <CardDeckComp games={this.state.recommendedGames} callBackFunction={this.cardClicked} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                            {/*<RecommendedGames />*/}
+                        <div className="col-md-3 recommendedMargin">
+                            <FacebookPagePlugin />
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: path.join(__dirname, "src" ,'AppClient.js'),
+    entry: path.join(__dirname, "src", 'AppClient.js'),
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -30,13 +31,11 @@ module.exports = {
                 }
             },
             {
-                test: /\.css?$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader'
-                    }
-                ]
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
@@ -58,5 +57,6 @@ module.exports = {
                 BROWSER: JSON.stringify(true)
             }
         }),
+        new ExtractTextPlugin("styles.css"),
     ]
 }

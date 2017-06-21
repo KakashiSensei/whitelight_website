@@ -4,6 +4,8 @@ import * as  AppHelper from "../helper/AppHelper";
 import GameQuestionComp from "../components/GameQuestionComp";
 import * as config from "../../config";
 import * as Requests from "../Requests";
+import FacebookPagePlugin from "../components/FacebookPagePlugin";
+import CardDeckComp from "../components/CardDeckComp";
 
 export default class WallPostPage extends Component {
     title;
@@ -24,8 +26,9 @@ export default class WallPostPage extends Component {
         this.state = {
             questionLoaded: false,
             showLoader: false,
-            redirectFlag: false
+            recommendedGames: [],
         }
+        this.cardClicked = this.cardClicked.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +39,13 @@ export default class WallPostPage extends Component {
                 this.introImage = data.introImage;
                 this.setState({
                     questionLoaded: true
+                })
+            })
+
+        Requests.getRecommendedGames(this.gameID)
+            .then((data) => {
+                this.setState({
+                    recommendedGames: data
                 })
             })
     }
@@ -59,10 +69,8 @@ export default class WallPostPage extends Component {
 
                 Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
                     let name = res.Key;
-                    _this.setState({
-                        imageName: name,
-                        redirectFlag: true
-                    })
+                    let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title;
+                    _this.props.history.push(linkAddress);
                 });
             } else if (response.status === 'not_authorized') {
                 // the user is logged in to Facebook, 
@@ -73,14 +81,12 @@ export default class WallPostPage extends Component {
         }, { scope: config.scope });
     }
 
+    cardClicked(url) {
+        this.props.history.push(url);
+    }
+
     render() {
-
-        if (this.state.redirectFlag) {
-            let linkAddress = "/game/result/" + this.gameID + "?image=" + this.state.imageName + "&title=" + this.title;
-            return <Redirect to={linkAddress} />;
-        }
-
-        let questionContainer = <div></div>;
+        let questionContainer = <div className="falseSize addShadow"></div>;
         if (this.state.questionLoaded) {
             questionContainer = (
                 <GameQuestionComp id={this.gameID} title={this.title} introImage={this.introImage} callbackFunction={this.callbackFunction.bind(this)} />
@@ -99,11 +105,21 @@ export default class WallPostPage extends Component {
                 <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-9 gameContainer">
+                        <div className="col-md-9">
                             {questionContainer}
+                            <div className="recommendedMargin">
+                                <div>
+                                    <div className="topic">
+                                        Play more games
+                                    </div>
+                                    <div>
+                                        <CardDeckComp games={this.state.recommendedGames} callBackFunction={this.cardClicked} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-3">
-                            {/*<RecommendedGames />*/}
+                        <div className="col-md-3 recommendedMargin">
+                            <FacebookPagePlugin />
                         </div>
                     </div>
                 </div>

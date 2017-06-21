@@ -13,16 +13,21 @@ export default class CardComp extends Component {
 
     constructor(props) {
         super(props);
+        this.cardClicked = this.cardClicked.bind(this);
+    }
+
+    cardClicked(e) {
+        let url = "/game/" + this.props.id + "?title=" + this.props.title;
+        this.props.callBackFunction(url);
     }
 
     render() {
-        let url = "/game/" + this.props.id + "?title=" + this.props.title;
         return (
-            <Card className="col-md-4 rollOver" onClick={this.props.callBackFunction.bind(this, url)}>
-                    <CardImg top width="100%" src={this.props.introImage} alt="Card image cap" />
-                    <CardBlock>
-                        <CardTitle className="questionTitle">{this.props.title}</CardTitle>
-                    </CardBlock>
+            <Card className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={this.cardClicked}>
+                <CardImg top width="100%" src={this.props.introImage} alt="Card image cap" />
+                <CardBlock>
+                    <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
+                </CardBlock>
             </Card>
         )
     }

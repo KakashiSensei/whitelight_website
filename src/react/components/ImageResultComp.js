@@ -17,7 +17,7 @@ export default class ImageResultComp extends Component {
 
     render() {
         return (
-            <div className="gameOuterMargin">
+            <div className="gameOuterMargin gameContainer centerAlign addShadow">
                 <div className="row">
                     <div className="col-md-12 centerAlign gameTitle">
                         {this.props.title}

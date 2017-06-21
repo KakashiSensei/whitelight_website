@@ -30,9 +30,11 @@ function renderPage(appHtml, helmet) {
     <html>
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <body>
-    <div id=app>${appHtml}</div>
     <div id="fb-root"></div>
+    <div id=app>${appHtml}</div>
+    </body>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -41,7 +43,6 @@ function renderPage(appHtml, helmet) {
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <script src="/bundle.js"></script>
-    </body>
     </html>
    `
 }

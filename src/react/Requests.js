@@ -13,6 +13,12 @@ exports.getGame = (gameID) => {
         .then(res => res.json())
 }
 
+exports.getRecommendedGames = (gameID) => {
+    let url = config.domainName + '/api/recommendedGames/' + gameID;
+    return fetch(url, { method: 'GET' })
+        .then(res => res.json())
+}
+
 exports.getGameResult = (userID, accessToken, gameID) => {
     let url = config.domainName + "/api/game/" + gameID;
     let data = { userid: userID, token: accessToken, questionID: gameID };

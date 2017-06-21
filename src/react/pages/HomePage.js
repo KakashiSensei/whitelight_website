@@ -19,38 +19,22 @@ export default class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "games": null,
-            "redirectURL": null,
+            "games": null
         }
     }
 
     cardClicked(url) {
-        //redirect to other link
-        this.setState({
-            "redirectURL": url
-        })
+        this.props.history.push(url);
     }
 
     componentDidMount() {
         Requests.getAllGames()
             .then((data) => {
-                let gamesArray = [];
-                data.forEach((element) => {
-                    let gameData = {};
-                    gameData["id"] = element._id;
-                    gameData["introImage"] = element.introImage;
-                    gameData["title"] = element.title;
-                    gamesArray.push(gameData);
-                });
-                this.setState({ "games": gamesArray })
+                this.setState({ "games": data })
             })
     }
 
     render() {
-        if (this.state.redirectURL) {
-            return <Redirect push to={this.state.redirectURL} />;
-        }
-        
         return (
             <div>
                 <HomeHeader />
@@ -67,7 +51,7 @@ export default class HomePage extends Component {
 
                         </div>
                         <div className="col-md-3 recommendedMargin">
-                            <FacebookPagePlugin/>
+                            <FacebookPagePlugin />
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
 import {
-    BrowserRouter as Router,
+    BrowserRouter as Router, useRouterHistory
 } from 'react-router-dom'
 import Routes from "./Routes";
-import createHistory from 'history/createBrowserHistory';
 if (process.env.BROWSER) {
     require('../asset/bgimage.png');
     require('../asset/footerImage.png');

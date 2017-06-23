@@ -9,6 +9,7 @@ import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
 import FacebookHelper from "../helper/FacebookHelper";
 import LoaderComp from "../components/LoaderComp";
+import queryString from "query-string";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -26,7 +27,7 @@ export default class HomePage extends Component {
         this.state = {
             questionLoaded: false,
             showLoader: false,
-            recommendedGames: [],
+            recommendedGames: []
         }
         this.cardClicked = this.cardClicked.bind(this);
     }
@@ -72,16 +73,17 @@ export default class HomePage extends Component {
             showLoader: true
         })
         //request for the game
-        FacebookHelper.loginFacebook((response) => {
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
+        FacebookHelper.loginFacebook()
+            .then((response) => {
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
 
-            Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
-                let name = res.Key;
-                let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title;
-                _this.props.history.push(linkAddress);
-            });
-        });
+                Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
+                    let name = res.Key;
+                    let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title;
+                    _this.props.history.push(linkAddress);
+                });
+            })
     }
 
     cardClicked(url) {

@@ -17,8 +17,9 @@ export default class WallPostPage extends Component {
     constructor(props) {
         super(props);
         let pathName = this.props.location.pathname;
+        debugger;
         let urlParams = AppHelper.urlParams(this.props.location);
-        let imageName = urlParams["image"];
+        let imageName = urlParams["image"] + ".png";
         this.imageFullPath = config.storageContainer + "/" + imageName;
         this.title = urlParams["title"];
         this.gameID = pathName.split("/").pop();

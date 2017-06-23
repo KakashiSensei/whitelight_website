@@ -30,9 +30,6 @@ exports.getGameResult = (userID, accessToken, gameID) => {
         },
         body: JSON.stringify(data)
     })
-        .then((res) => {
-            let resJson = res.json();
-            return resJson;
-        })
+        .then(res => res.json())
 }
 

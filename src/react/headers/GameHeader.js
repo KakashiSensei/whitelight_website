@@ -9,13 +9,15 @@ export default class GameHeader extends Component {
         title: PropTypes.string.isRequired
     }
 
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
     render() {
         let title = this.props.title
         let website = this.props.url;
+        let imageURL = "https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/17157436_211385332672148_579550780088126766_o.jpg?oh=b03f3449493b1d847523ecdc4f73346d&oe=597FECCF";
+
         return (
             <Helmet>
                 <meta charSet="utf-8" />
@@ -30,7 +32,7 @@ export default class GameHeader extends Component {
                 <meta property="og:site_name" content={config.website} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={website} />
-                <meta property="og:image" content="https://support.apple.com/content/dam/edam/applecare/images/en_US/iphone/featured-content-iphone-transfer-content-ios10_2x.png" />
+                <meta property="og:image" content={imageURL} />
             </Helmet>
         )
     }

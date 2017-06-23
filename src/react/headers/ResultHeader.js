@@ -31,6 +31,8 @@ export default class ResultHeader extends Component {
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={this.props.url} />
                 <meta property="og:image" content={this.props.image} />
+                <meta property="og:image:width" content="698px"/>
+                <meta property="og:image:height" content="367px"/>
             </Helmet>
         )
     }

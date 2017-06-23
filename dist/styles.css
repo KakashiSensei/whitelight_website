@@ -9200,7 +9200,7 @@ body {
     object-fit: contain;
 }
 
-.loginButton, .loginButton:hover {
+.loginButton, .loginButton:hover, .loginButton:focus {
     color: #FFFFFF;
     background-color: #3B5998;
 }

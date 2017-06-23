@@ -28,7 +28,15 @@ export default class ResultPage extends Component {
         this.state = {
             recommendedGames: [],
         }
+        // scrap the url
+        this.scrapTheURL();
+    }
 
+    scrapTheURL() {
+        let url = `https://developers.facebook.com/tools/debug/og/object/?q=${this.props.location.pathname}&scrape=true`;
+        fetch(url, { method: "POST" })
+            .then(res => res.json())
+            .then(data => data);
     }
 
     componentDidMount() {

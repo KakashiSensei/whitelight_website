@@ -62,9 +62,11 @@ export default class ResultPage extends Component {
     }
 
     render() {
+        let style = {width: "0px", height: "0px", margin: "0px", padding: "0px"};
         return (
             <div>
                 <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
+                <iframe src={this.props.location} style={style}></iframe>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">

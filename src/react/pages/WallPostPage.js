@@ -17,13 +17,13 @@ export default class WallPostPage extends Component {
     constructor(props) {
         super(props);
         let pathName = this.props.location.pathname;
-        debugger;
         let urlParams = AppHelper.urlParams(this.props.location);
-        let imageName = urlParams["image"] + ".png";
+        let imageName = urlParams["image"];
         this.imageFullPath = config.storageContainer + "/" + imageName;
         this.title = urlParams["title"];
         this.gameID = pathName.split("/").pop();
         this.fullURL = config.website + this.props.location.pathname + this.props.location.search;
+
         this.state = {
             questionLoaded: false,
             showLoader: false,

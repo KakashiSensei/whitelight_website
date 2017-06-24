@@ -17,11 +17,12 @@ export default class ResultHeader extends Component {
     }
 
     render() {
+        let regEx = new RegExp("+", 'g');
         return (
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>White Light</title>
-                <meta name="description" content={decode(this.props.title).replace("+", " ")} />
+                <meta name="description" content={decode(this.props.title).replaceAll(regEx, " ")} />
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
                 <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

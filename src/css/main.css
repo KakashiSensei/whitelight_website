@@ -48,7 +48,14 @@ body {
 }
 
 .questionTitle{
-    font-size: 17px;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-height: 1.5em;        /* fallback */
+    height: 3em; 
 }
 
 .jumbotron{
@@ -158,4 +165,18 @@ body {
 
 .loaderText{
     font-size: 25px;
+}
+
+.cardImage{
+    width: 300px;
+    height: 200px
+}
+
+.positionLoader{
+    position: absolute;
+    left: 50%;
+    margin: auto;
+    -ms-transform: translate(-50%, 100%) scale(0.5); /* IE 9 */
+    -webkit-transform: translate(-50%, 100%) scale(0.5); /* Chrome, Safari, Opera */
+    transform: translate(-50%, 100%) scale(0.5);
 }

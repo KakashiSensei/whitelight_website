@@ -2,6 +2,10 @@
     content:url("/src/asset/f_logo_with_white_back.png");
 }
 
+.cardImageLoader {
+    content:url("/src/asset/loading.png");
+}
+
 .jumbotronImage {
     content:url("/src/asset/bgimage.png");
 }

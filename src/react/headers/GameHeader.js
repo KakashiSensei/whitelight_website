@@ -15,7 +15,7 @@ export default class GameHeader extends Component {
     }
 
     render() {
-        let regEx = new RegExp("+", 'g');
+        let regEx = new RegExp(/[+]/g)
         let website = this.props.url;
         let imageURL = "https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/17157436_211385332672148_579550780088126766_o.jpg?oh=b03f3449493b1d847523ecdc4f73346d&oe=597FECCF";
 
@@ -23,7 +23,7 @@ export default class GameHeader extends Component {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>White Light</title>
-                <meta name="description" content={decode(decode(this.props.title).replaceAll(regEx, " "))} />
+                <meta name="description" content={decode(decode(this.props.title).replace(regEx, " "))} />
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
                 <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1" />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

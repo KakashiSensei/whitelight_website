@@ -38,22 +38,25 @@ export default class CardComp extends Component {
         let loadingImage = "/src/asset/loading.png";
 
         let loaderImageClass = {};
-        let iconImageClass = {display: "none"};
+        let iconImageClass = { display: "none" };
         let loaderAnimation = "loader positionLoader";
         if (this.state.imageLoaded) {
             loaderAnimation = "";
-            loaderImageClass = {display: "none"};
+            loaderImageClass = { display: "none" };
             iconImageClass = {};
         }
 
         return (
-            <Card className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={this.cardClicked}>
-                <div className={loaderAnimation}></div>
-                <CardImg top width="100%" style={loaderImageClass} src={loadingImage} alt="Card image cap" />
-                <CardImg top width="100%" style={iconImageClass} src={this.props.introImage} alt="Card image cap" onLoad={this.loadImage}/>
-                <CardBlock>
-                    <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
-                </CardBlock>
+            <Card block className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={this.cardClicked}>
+                <div>
+                    <div className={loaderAnimation}></div>
+                    <CardImg top width="100%" style={loaderImageClass} src={loadingImage} alt="Card image cap" />
+                    <CardImg top width="100%" style={iconImageClass} src={this.props.introImage} alt="Card image cap" onLoad={this.loadImage} />
+                    <CardBlock>
+                        <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
+                    </CardBlock>
+                </div>
+                <br/>
             </Card>
         )
     }

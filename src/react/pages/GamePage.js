@@ -91,7 +91,7 @@ export default class HomePage extends Component {
     }
 
     render() {
-        let questionContainer = <div className="falseSize addShadow"></div>;
+        let questionContainer = <div className="gameOuterMargin falseSize addShadow"></div>;
         if (this.state.questionLoaded) {
             questionContainer = (
                 <GameQuestionComp id={this.gameID} title={this.title} introImage={this.introImage} callbackFunction={this.callbackFunction.bind(this)} />

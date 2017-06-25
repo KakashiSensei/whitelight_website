@@ -21,13 +21,14 @@ export default class HomePage extends Component {
         this.state = {
             "games": null
         }
+        this.startRequesting();
     }
 
     cardClicked(url) {
         this.props.history.push(url);
     }
 
-    componentDidMount() {
+    startRequesting() {
         Requests.getAllGames()
             .then((data) => {
                 this.setState({ "games": data })

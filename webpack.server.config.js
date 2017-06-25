@@ -7,7 +7,7 @@ module.exports = {
         path: path.join(__dirname),
         filename: 'serverDev.js'
     },
-    devtool: "eval",
+    devtool: "cheap-module-source-map",
     resolve: {
         extensions: ['.js', '.jsx', '.css', '.jpg', '.png']
     },

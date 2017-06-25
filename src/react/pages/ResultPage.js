@@ -6,7 +6,7 @@ import ImageResultComp from "../components/ImageResultComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import CardDeckComp from "../components/CardDeckComp";
 import * as Requests from "../Requests";
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 export default class ResultPage extends Component {
     title;

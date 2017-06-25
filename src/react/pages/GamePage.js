@@ -3,13 +3,12 @@ import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
 import FacebookHelper from "../helper/FacebookHelper";
 import LoaderComp from "../components/LoaderComp";
-import queryString from "query-string";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -30,6 +29,7 @@ export default class HomePage extends Component {
             recommendedGames: []
         }
         this.cardClicked = this.cardClicked.bind(this);
+        this.startRequesting();
     }
 
     setInitialState(pathName) {
@@ -38,7 +38,7 @@ export default class HomePage extends Component {
         this.gameID = pathName.split("/").pop();
     }
 
-    componentDidMount() {
+    startRequesting() {
         Requests.getGame(this.gameID)
             .then((data) => {
                 this.title = data.title;

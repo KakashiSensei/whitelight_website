@@ -7,7 +7,6 @@ import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import CardDeckComp from "../components/CardDeckComp";
 import * as Requests from "../Requests";
 import { Redirect } from 'react-router';
-import decode from "urldecode";
 
 export default class ResultPage extends Component {
     title;
@@ -20,7 +19,7 @@ export default class ResultPage extends Component {
         super(props);
         let pathName = this.props.location.pathname;
         let urlParams = AppHelper.urlParams(this.props.location);
-        this.title = decode(urlParams["title"]);
+        this.title = urlParams["title"];
         this.imageName = urlParams["image"];
         this.imageFullPath = config.storageContainer + "/" + this.imageName;
         this.gameID = pathName.split("/").pop();

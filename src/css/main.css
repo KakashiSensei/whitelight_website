@@ -195,3 +195,11 @@ body {
 .cardSizing{
     padding: 0px;
 }
+
+.paddingTitle{
+    padding: 20px;
+}
+
+.paddingParagraph {
+    padding: 30px
+}

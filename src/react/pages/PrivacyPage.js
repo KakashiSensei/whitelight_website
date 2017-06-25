@@ -9,7 +9,7 @@ export default class PrivacyPage extends Component {
     render() {
         return (
             <div className="container">
-                <HomeHeader title={this.title} url={this.props.location} />
+                <HomeHeader />
                 <div className="row textColor">
                     <div className="col-md-12 centerAlign paddingTitle gameTitle">
                         Privacy Policy

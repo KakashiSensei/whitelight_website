@@ -5,6 +5,7 @@ import GamePage from './pages/GamePage';
 import ResultPage from './pages/ResultPage';
 import WallPostPage from './pages/WallPostPage';
 import PrivacyPage from './pages/PrivacyPage';
+import ContactUsPage from './pages/ContactUsPage';
 import NavBarComp from './components/NavBarComp';
 import FooterComp from './components/FooterComp';
 
@@ -18,6 +19,7 @@ export default class Routes extends Component {
                 <Route exact path="/game/result/:id" component={ResultPage} />
                 <Route exact path="/game/wallpost/:id" component={WallPostPage} />
                 <Route exact path="/privacy" component={PrivacyPage} />
+                <Route exact path="/contactus" component={ContactUsPage} />
                 <FooterComp />
             </div>
         )

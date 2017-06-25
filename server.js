@@ -26,6 +26,15 @@ app.get('*', (req, res) => {
 function renderPage(appHtml, helmet) {
     return `
     <html>
+    <head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6583225004988834",
+        enable_page_level_ads: true
+    });
+    </script>
+    </head>
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
     <link rel="stylesheet" type="text/css" href="/styles.css">

@@ -50,7 +50,7 @@ export default class CardComp extends Component {
             <Card block className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={this.cardClicked}>
                 <div>
                     <div className={loaderAnimation}></div>
-                    <CardImg top width="100%" style={loaderImageClass} src={loadingImage} alt="Card image cap" />
+                    <CardImg top width="100%" style={loaderImageClass} src="/src/asset/loading.png" alt="Card image cap" />
                     <CardImg top width="100%" style={iconImageClass} src={this.props.introImage} alt="Card image cap" onLoad={this.loadImage} />
                     <CardBlock>
                         <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>

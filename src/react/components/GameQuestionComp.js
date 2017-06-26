@@ -32,7 +32,9 @@ export default class GameQuestionComp extends Component {
                     <div className="row">
                         <div className="col-md-4 col-md-push-4 centerAlign">
                             <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
-                                <span className="facebookIcon loginIcon"></span>
+                                <span className="loginIcon">
+                                    <img src="/src/asset/f_logo_with_white_back.png"/>
+                                </span>
                                 <span>Login with Facebook</span>
                             </Button>
                         </div>

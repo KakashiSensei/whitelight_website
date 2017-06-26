@@ -11,8 +11,14 @@ import FooterComp from './components/FooterComp';
 
 export default class Routes extends Component {
     render() {
+        let backgroundCSS = {
+            backgroundImage: `url("/src/asset/footerImage.png")`,
+            backgroundPosition: "center bottom",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+        }
         return (
-            <div className="footerImage">
+            <div style={backgroundCSS}>
                 <NavBarComp />
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/game/:id" component={GamePage} />

@@ -3,7 +3,7 @@ import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
@@ -29,7 +29,6 @@ export default class HomePage extends Component {
             recommendedGames: []
         }
         this.cardClicked = this.cardClicked.bind(this);
-        this.startRequesting();
     }
 
     setInitialState(pathName) {
@@ -38,7 +37,7 @@ export default class HomePage extends Component {
         this.gameID = pathName.split("/").pop();
     }
 
-    startRequesting() {
+    componentDidMount() {
         Requests.getGame(this.gameID)
             .then((data) => {
                 this.title = data.title;

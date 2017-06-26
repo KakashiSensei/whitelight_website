@@ -5,7 +5,7 @@ export default class JumbotronComp extends Component {
     render() {
         return (
             <Jumbotron>
-                <div className="jumbotronImage imageSize"></div>
+                <img className="imageSize" src="/src/asset/bgimage.png"/>
             </Jumbotron>
         )
     }

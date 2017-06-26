@@ -14,19 +14,6 @@ export default class CardComp extends Component {
     constructor(props) {
         super(props);
         this.cardClicked = this.cardClicked.bind(this);
-        this.loadImage = this.loadImage.bind(this);
-        this.state = {
-            imageLoaded: false
-        }
-    }
-
-    loadImage() {
-        fetch(this.props.introImage, { method: "GET" })
-            .then((res) => {
-                this.setState({
-                    imageLoaded: true
-                })
-            })
     }
 
     cardClicked(e) {
@@ -35,28 +22,15 @@ export default class CardComp extends Component {
     }
 
     render() {
-        let loadingImage = "/src/asset/loading.png";
-
-        let loaderImageClass = {};
-        let iconImageClass = { display: "none" };
-        let loaderAnimation = "loader positionLoader";
-        if (this.state.imageLoaded) {
-            loaderAnimation = "";
-            loaderImageClass = { display: "none" };
-            iconImageClass = {};
-        }
-
         return (
             <Card block className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={this.cardClicked}>
                 <div>
-                    <div className={loaderAnimation}></div>
-                    <CardImg top width="100%" style={loaderImageClass} src="/src/asset/loading.png" alt="Card image cap" />
-                    <CardImg top width="100%" style={iconImageClass} src={this.props.introImage} alt="Card image cap" onLoad={this.loadImage} />
+                    <CardImg top width="100%" src={this.props.introImage} alt="Card image cap" />
                     <CardBlock>
                         <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
                     </CardBlock>
                 </div>
-                <br/>
+                <br />
             </Card>
         )
     }

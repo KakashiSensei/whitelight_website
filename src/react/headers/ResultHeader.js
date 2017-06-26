@@ -17,7 +17,7 @@ export default class ResultHeader extends Component {
     }
 
     render() {
-        let regEx = new RegExp(/[+]/g)
+        let regEx = new RegExp(/[+]/g);
         return (
             <Helmet>
                 <meta charSet="utf-8" />

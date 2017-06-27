@@ -10,7 +10,6 @@ export default class CardDeckComp extends Component {
             introImage: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired
         }).isRequired,
-        callBackFunction: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -21,7 +20,7 @@ export default class CardDeckComp extends Component {
         return (
             <CardDeck className="row">
                 {this.props.games && this.props.games.map((element, index)=>{
-                    return (<CardComp key={element._id} id={element._id} title={element.title} introImage={element.introImage} callBackFunction = {this.props.callBackFunction}/>);
+                    return (<CardComp key={element._id} id={element._id} title={element.title} introImage={element.introImage} />);
                 })}
             </CardDeck>
         )

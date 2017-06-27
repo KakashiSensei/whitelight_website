@@ -10,6 +10,7 @@ import Helmet from "react-helmet";
 const app = express();
 app.use(express.static(path.join(__dirname, 'dist')));
 app.get('*', (req, res) => {
+    console.log("Request", req.url);
     const context = {};
     const markup = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
@@ -20,7 +21,6 @@ app.get('*', (req, res) => {
 
     // render the index template with the embedded React markup
     let renderedPage = renderPage(markup, helmet);
-    console.log(renderedPage);
     return res.send(renderedPage);
 });
 

@@ -49,6 +49,7 @@ body {
 
 .questionTitle{
     font-size: 15px;
+    color: black;
     padding: 10px;
     margin: 0px;
     overflow: hidden;

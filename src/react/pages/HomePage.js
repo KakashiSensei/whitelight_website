@@ -5,7 +5,6 @@ import JumbotronComp from "../components/JumbotronComp";
 import * as config from "../../config";
 require('es6-promise').polyfill();
 import CardDeckComp from "../components/CardDeckComp";
-import { Redirect } from "react-router-dom";
 import HomeHeader from "../headers/HomeHeader";
 import * as Requests from "../Requests";
 import FooterComp from "../components/FooterComp";
@@ -21,10 +20,6 @@ export default class HomePage extends Component {
         this.state = {
             "games": null
         }
-    }
-
-    cardClicked(url) {
-        this.props.history.push(url);
     }
 
     componentDidMount() {
@@ -46,7 +41,7 @@ export default class HomePage extends Component {
                                 Play Games
                             </div>
                             <div>
-                                <CardDeckComp games={this.state.games} callBackFunction={this.cardClicked.bind(this)} />
+                                <CardDeckComp games={this.state.games} />
                             </div>
 
                         </div>

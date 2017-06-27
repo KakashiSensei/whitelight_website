@@ -3,7 +3,6 @@ import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
-import { Redirect } from 'react-router';
 import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
@@ -28,7 +27,6 @@ export default class HomePage extends Component {
             showLoader: false,
             recommendedGames: []
         }
-        this.cardClicked = this.cardClicked.bind(this);
     }
 
     setInitialState(pathName) {
@@ -85,10 +83,6 @@ export default class HomePage extends Component {
             })
     }
 
-    cardClicked(url) {
-        this.props.history.push(url);
-    }
-
     render() {
         let questionContainer = <div className="gameOuterMargin falseSize addShadow"></div>;
         if (this.state.questionLoaded) {
@@ -117,7 +111,7 @@ export default class HomePage extends Component {
                                         Play more games
                                     </div>
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} callBackFunction={this.cardClicked} />
+                                        <CardDeckComp games={this.state.recommendedGames} />
                                     </div>
                                 </div>
                             </div>

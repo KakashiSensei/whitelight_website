@@ -29,7 +29,6 @@ export default class WallPostPage extends Component {
             showLoader: false,
             recommendedGames: [],
         }
-        this.cardClicked = this.cardClicked.bind(this);
     }
 
     componentDidMount() {
@@ -82,10 +81,6 @@ export default class WallPostPage extends Component {
         }, { scope: config.scope });
     }
 
-    cardClicked(url) {
-        this.props.history.push(url);
-    }
-
     render() {
         let questionContainer = <div className="falseSize addShadow"></div>;
         if (this.state.questionLoaded) {
@@ -114,7 +109,7 @@ export default class WallPostPage extends Component {
                                         Play more games
                                     </div>
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} callBackFunction={this.cardClicked} />
+                                        <CardDeckComp games={this.state.recommendedGames} />
                                     </div>
                                 </div>
                             </div>

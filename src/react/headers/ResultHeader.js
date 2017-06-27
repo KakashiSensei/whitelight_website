@@ -31,8 +31,9 @@ export default class ResultHeader extends Component {
                 <meta property="fb:admins" content={config.adminID} />
                 <meta property="og:site_name" content={config.website} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={this.props.url} />
                 <meta property="og:image" content={this.props.image} />
+                <meta property="og:url" content={this.props.url} />
+                <meta property="og:image:secure_url" content={this.props.url} />
                 <meta property="og:image:width" content="698"/>
                 <meta property="og:image:height" content="367"/>
             </Helmet>

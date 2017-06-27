@@ -29,6 +29,9 @@ function renderPage(appHtml, helmet) {
     <html>
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
+    <head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </head>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <body>
     <div id="fb-root"></div>

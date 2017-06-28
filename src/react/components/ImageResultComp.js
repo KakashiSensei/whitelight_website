@@ -26,6 +26,8 @@ export default class ImageResultComp extends Component {
                 let calculatedWidth = node.clientHeight / 367 * 698;
                 divStyle = {
                     width: calculatedWidth,
+                    textAlign: "left",
+                    margin: "auto"
                 }
             }
         }
@@ -42,8 +44,8 @@ export default class ImageResultComp extends Component {
                         <img ref="myImgContainer" className="imageSize" src={this.props.resultImage}></img>
                     </div>
                 </div>
-                <div className="row" style={{margin:"auto"}}>
-                    <div style={divStyle} className="col-md-12">
+                <div className="row">
+                    <div style={divStyle} className="outputTextPadding">
                         {parsedElement}
                     </div>
                 </div>

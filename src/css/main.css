@@ -85,7 +85,7 @@ body {
 }
 
 .falseSize {
-    min-height: 511;
+    min-height: 200px;
 }
 
 .gameOuterMargin {
@@ -98,13 +98,30 @@ body {
     margin-bottom: 10px;
 }
 
+.gameImageContainer{
+    margin-bottom: 20px
+}
+
 @media screen and (max-width: 520px) and (min-width: 320px){
     .gameTitle{
         font-size: 18px;
         margin-bottom: 10px;
     }
+
+    .gameImageContainer{
+        margin-bottom: 20px
+    }
 }
 
+.questionImageSize{
+    max-height: 100%
+}
+
+@media screen and (max-width: 520) and (min-width: 320px){
+    .questionImageSize{
+        max-height: 120px
+    }
+}
 
 .imageSize{
     max-width:100%;
@@ -115,6 +132,13 @@ body {
 .loginButton, .loginButton:hover, .loginButton:focus {
     color: #FFFFFF;
     background-color: #3B5998;
+}
+
+@media screen and (max-width: 520) and (min-width: 320px){
+    .loginButton, .loginButton:hover, .loginButton:focus {
+        color: #FFFFFF;
+        background-color: #3B5998;
+    }
 }
 
 .loginIcon {

@@ -26,7 +26,7 @@ export default class GameQuestionComp extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-12 centerAlign gameImageContainer">
-                            <img className="imageSize" src={this.props.introImage} />
+                            <img className="questionImageSize" src={this.props.introImage} />
                         </div>
                     </div>
                     <div className="row">

@@ -21,14 +21,8 @@ export default class ImageResultComp extends Component {
         let divStyle = {};
         if (this.props.outputText) {
             parsedElement = Parser(this.props.outputText);
-            let node = this.refs["myImgContainer"];
-            if (node) {
-                let calculatedWidth = node.clientHeight / 367 * 698;
-                divStyle = {
-                    width: calculatedWidth,
-                    textAlign: "left",
-                    margin: "auto"
-                }
+            divStyle = {
+                textAlign: "left",
             }
         }
 
@@ -40,14 +34,12 @@ export default class ImageResultComp extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div ref="myImgContainer" className="col-md-12 centerAlign gameImageContainer">
+                    <div className="col-md-12 centerAlign">
                         <img className="imageSize" src={this.props.resultImage}></img>
-                    </div>
-                </div>
-                <div className="row">
-                    <div style={divStyle} className="outputTextPadding">
-                        <div className="innerTextPadding">
-                            {parsedElement}
+                        <div className="row">
+                            <div style={divStyle} className="innerTextPadding col-md-12">
+                                {parsedElement}
+                            </div>
                         </div>
                     </div>
                 </div>

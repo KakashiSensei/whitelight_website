@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import config from "../../config";
 import { Button } from 'reactstrap';
+import Parser from "html-react-parser";
 
 export default class ImageResultComp extends Component {
     static propTypes = {
@@ -16,6 +17,19 @@ export default class ImageResultComp extends Component {
     }
 
     render() {
+        let parsedElement = <div></div>;
+        let divStyle = {};
+        if (this.props.outputText) {
+            parsedElement = Parser(this.props.outputText);
+            let node = this.refs["myImgContainer"];
+            if (node) {
+                let calculatedWidth = node.clientHeight / 367 * 698;
+                divStyle = {
+                    width: calculatedWidth,
+                }
+            }
+        }
+
         return (
             <div className="gameOuterMargin gameContainer centerAlign addShadow">
                 <div className="row">
@@ -25,14 +39,19 @@ export default class ImageResultComp extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-12 centerAlign gameImageContainer">
-                        <img className="imageSize" src={this.props.resultImage}></img>
+                        <img ref="myImgContainer" className="imageSize" src={this.props.resultImage}></img>
+                    </div>
+                </div>
+                <div className="row" style={{margin:"auto"}}>
+                    <div style={divStyle} className="col-md-12">
+                        {parsedElement}
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-4 col-md-push-4 centerAlign">
                         <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
                             <span className="loginIcon">
-                                <img src="/src/asset/f_logo_with_white_back.png"/>
+                                <img src="/src/asset/f_logo_with_white_back.png" />
                             </span>
                             <span>Share on Facebook</span>
                         </Button>

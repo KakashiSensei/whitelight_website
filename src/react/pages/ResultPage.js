@@ -26,6 +26,7 @@ export default class ResultPage extends Component {
         this.shareClicked = this.shareClicked.bind(this);
         this.state = {
             recommendedGames: [],
+            outputText: null
         }
     }
 
@@ -34,6 +35,15 @@ export default class ResultPage extends Component {
             .then((data) => {
                 this.setState({
                     recommendedGames: data
+                })
+            })
+
+        let transcationNumber = this.imageName.replace("image", "").replace(".png", "");
+        Requests.getTransaction(transcationNumber)
+            .then((data) => {
+                let outputText = data.outputText;
+                this.setState({
+                    outputText: outputText
                 })
             })
     }
@@ -48,14 +58,14 @@ export default class ResultPage extends Component {
     }
 
     render() {
-        let style = {width: "0px", height: "0px", margin: "0px", padding: "0px"};
+        let style = { width: "0px", height: "0px", margin: "0px", padding: "0px" };
         return (
             <div>
                 <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">
-                            <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} />
+                            <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} outputText={this.state.outputText}/>
                             <div className="recommendedMargin">
                                 <div>
                                     <div className="topic">

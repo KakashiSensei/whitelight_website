@@ -33,3 +33,11 @@ exports.getGameResult = (userID, accessToken, gameID) => {
         .then(res => res.json())
 }
 
+exports.getTransaction = (transactionID) => {
+    let url = config.domainName + "/api/transaction/" + transactionID;
+    return fetch(url, {
+        method: 'GET'
+    })
+    .then(res => res.json())
+}
+

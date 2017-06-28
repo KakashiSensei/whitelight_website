@@ -40,13 +40,15 @@ export default class ImageResultComp extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12 centerAlign gameImageContainer">
-                        <img ref="myImgContainer" className="imageSize" src={this.props.resultImage}></img>
+                    <div ref="myImgContainer" className="col-md-12 centerAlign gameImageContainer">
+                        <img className="imageSize" src={this.props.resultImage}></img>
                     </div>
                 </div>
                 <div className="row">
                     <div style={divStyle} className="outputTextPadding">
-                        {parsedElement}
+                        <div className="innerTextPadding">
+                            {parsedElement}
+                        </div>
                     </div>
                 </div>
                 <div className="row">

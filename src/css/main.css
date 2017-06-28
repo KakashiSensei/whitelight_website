@@ -19,6 +19,11 @@ body {
     }
 }
 
+@font-face {
+    font-family: "Molleat";
+    src: url("/src/asset/font/Molleat.otf");
+}
+
 .navbar{
     background-color: #FAFAFA;
     padding: 0px;
@@ -212,4 +217,8 @@ body {
 .outputTextPadding {
     padding: 20px;
     padding-top: 10px;
+}
+
+.innerTextPadding {
+    padding-left: 20px;
 }

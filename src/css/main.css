@@ -10,6 +10,7 @@ body {
     background-color: #F9F9F9;
     margin: 0px;
     padding: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 1024px){

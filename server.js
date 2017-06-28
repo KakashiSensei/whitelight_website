@@ -33,6 +33,7 @@ function renderPage(appHtml, helmet) {
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <body>
     <div id="fb-root"></div>
     <div id=app>${appHtml}</div>

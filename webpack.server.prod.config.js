@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: path.join(__dirname, "src", 'AppClient.js'),
+    entry: path.join(__dirname,'server.js'),
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.join(__dirname),
+        filename: 'serverDev.js'
     },
     devtool: "cheap-module-source-map",
     resolve: {
@@ -17,25 +16,30 @@ module.exports = {
         reasons: true,
         chunks: true
     },
-    devServer: {
-        publicPath: "/dist"
+    node: {
+        __filename: true,
+        __dirname: true
     },
+    target: "node",
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
-                options: {
+                options:
+                 {
                     presets: ["es2015", "react", "stage-2"]
                 }
             },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
+                test: /\.css?$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
@@ -46,7 +50,7 @@ module.exports = {
                 loader: "url-loader?limit=10000&mimetype=application/font-woff&name=src/asset/font/[name].[ext]"
             },
             {
-                test: /\.(ttf|eot|otf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader?name=src/asset/font/[name].[ext]"
             }
         ]
@@ -54,12 +58,11 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                'BROWSER': JSON.stringify(true),
-                'NODE_ENV': JSON.stringify('development'),
-                'REST_API': JSON.stringify('http://localhost:3000'),
-                'APP_ID': JSON.stringify("1866917183572616")
+                'BROWSER': JSON.stringify(false),
+                'NODE_ENV': JSON.stringify('production'),
+                'REST_API': JSON.stringify('https://white-light-rest-api.herokuapp.com'),
+                'APP_ID': JSON.stringify("399964337042548")
             }
         }),
-        new ExtractTextPlugin("styles.css"),
     ]
 }

@@ -1,9 +1,6 @@
-exports.domainName = "https://white-light-rest-api.herokuapp.com";
-// exports.domainName = "http://localhost:3000";
+exports.domainName = process.env.REST_API;
 exports.storageContainer = "https://s3-us-west-2.amazonaws.com/whitelightimages";
-exports.appID = "399964337042548";
+exports.appID = process.env.appID;
 exports.adminID = "4818530757899";
 exports.website = "https://www.whitelight.social";
-// exports.website = "https://whitelight-website.herokuapp.com";
-// exports.website = "localhost:8004";
 exports.scope = "public_profile,email,user_photos,user_posts,user_friends";

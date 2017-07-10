@@ -2,6 +2,7 @@ import config from "../config";
 import fetch from 'isomorphic-fetch';
 
 exports.getAllGames = () => {
+    console.log("Domain Name", config.domainName);
     let url = config.domainName + '/api/game';
     return fetch(url, { method: 'GET' })
         .then(res => res.json())

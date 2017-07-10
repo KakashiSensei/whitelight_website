@@ -25,6 +25,7 @@ export default class HomePage extends Component {
     componentDidMount() {
         Requests.getAllGames()
             .then((data) => {
+                console.log("Games", data);
                 this.setState({ "games": data })
             })
     }

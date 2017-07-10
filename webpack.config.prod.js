@@ -1,3 +1,4 @@
+
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -55,9 +56,9 @@ module.exports = {
         new webpack.DefinePlugin({
             "process.env": {
                 'BROWSER': JSON.stringify(true),
-                'NODE_ENV': JSON.stringify('development'),
-                'REST_API': JSON.stringify('http://localhost:3000'),
-                'APP_ID': JSON.stringify("1866917183572616")
+                'NODE_ENV': JSON.stringify('production'),
+                'REST_API': JSON.stringify('https://white-light-rest-api.herokuapp.com'),
+                'APP_ID': JSON.stringify("399964337042548")
             }
         }),
         new ExtractTextPlugin("styles.css"),

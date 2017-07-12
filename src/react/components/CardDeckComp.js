@@ -16,6 +16,10 @@ export default class CardDeckComp extends Component {
         super(props);
     }
 
+    componentDidMount(){
+
+    }
+
     render() {
         return (
             <CardDeck className="row">

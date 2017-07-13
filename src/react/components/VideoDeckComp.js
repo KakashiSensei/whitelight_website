@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CardDeck } from 'reactstrap';
 import VideoComp from './VideoComp';
 import PropTypes from "prop-types";
+import YoutubeEmbedVideo from 'youtube-embed-video';
 
 export default class VideoDeckComp extends Component {
     videoIDClicked = null;
@@ -20,6 +21,7 @@ export default class VideoDeckComp extends Component {
         }
 
         this.videoClicked = this.videoClicked.bind(this);
+        this.hideVideo = this.hideVideo.bind(this);
     }
 
     videoClicked(videoID){
@@ -29,12 +31,20 @@ export default class VideoDeckComp extends Component {
         })
     }
 
+    hideVideo(){
+        this.setState({
+            playVideo: false
+        })
+    }
+
     render(){
         let overlayVideo = <div></div>
         if(this.state.playVideo){
             overlayVideo = 
-                <div className="youtubeVideoDisplay">
-                    
+                <div className="youtubeVideoDisplay" onClick={this.hideVideo}>
+                    <div className="fullWindow">
+                        <YoutubeEmbedVideo videoId={this.videoIDClicked} suggestions={false}></YoutubeEmbedVideo>
+                    </div>
                 </div> 
         }
         return(

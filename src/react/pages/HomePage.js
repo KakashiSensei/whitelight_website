@@ -9,6 +9,7 @@ import VideoDeckComp from "../components/VideoDeckComp";
 import HomeHeader from "../headers/HomeHeader";
 import * as Requests from "../Requests";
 import FooterComp from "../components/FooterComp";
+import { Link } from "react-router-dom";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -51,13 +52,25 @@ export default class HomePage extends Component {
                                 <div>
                                     <CardDeckComp games={this.state.games} />
                                 </div>
+                                <div className="alignRight">
+                                    <Link to="/game">
+                                        more
+                                    </Link>
+                                </div>
                             </div>
+                            <br/>
+                            <br/>
                             <div className="row">
                                 <div className="topic">
                                     Watch Video
                                 </div>
                                 <div>
                                     <VideoDeckComp videos={this.state.videos} />
+                                </div>
+                                <div className="alignRight">
+                                    <Link to="/video">
+                                        more
+                                    </Link>
                                 </div>
                             </div>
                         </div>

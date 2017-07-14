@@ -5,10 +5,12 @@ import { StaticRouter } from "react-router";
 import Routes from "./src/react/Routes";
 import path from 'path';
 import Helmet from "react-helmet";
+import favicon from 'serve-favicon';
 // import config from 'config';
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
 app.get('*', (req, res) => {
     console.log("Request", req.url);
     const context = {};

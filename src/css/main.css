@@ -256,3 +256,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.alignRight{
+    text-align: right;
+}

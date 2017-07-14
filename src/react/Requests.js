@@ -1,14 +1,16 @@
 import config from "../config";
 import fetch from 'isomorphic-fetch';
 
-exports.getAllGames = () => {
+exports.getAllGames = (perPage, pageNumber) => {
     let url = config.domainName + '/api/game';
+    url = `${url}?n=${perPage}&p=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }
 
-exports.getAllVideos = () => {
+exports.getAllVideos = (perPage, pageNumber) => {
     let url = config.domainName + '/api/video';
+    url = `${url}?n=${perPage}&p=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }

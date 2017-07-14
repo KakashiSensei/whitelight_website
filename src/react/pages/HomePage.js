@@ -8,7 +8,6 @@ import CardDeckComp from "../components/CardDeckComp";
 import VideoDeckComp from "../components/VideoDeckComp";
 import HomeHeader from "../headers/HomeHeader";
 import * as Requests from "../Requests";
-import FooterComp from "../components/FooterComp";
 import { Link } from "react-router-dom";
 
 if (process.env.BROWSER) {
@@ -26,14 +25,14 @@ export default class HomePage extends Component {
     }
 
     componentDidMount() {
-        Requests.getAllGames()
+        Requests.getAllGames(6, 1)
             .then((data) => {
-                this.setState({ "games": data })
+                this.setState({ "games": data.items })
             })
 
-        Requests.getAllVideos()
+        Requests.getAllVideos(6, 1)
             .then((data)=>{
-                this.setState({ "videos": data })
+                this.setState({ "videos": data.items })
             })
     }
 

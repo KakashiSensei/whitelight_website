@@ -260,3 +260,13 @@ body {
 .alignRight{
     text-align: right;
 }
+
+.pager li > a.disableLink:hover, a.disableLink:visited, a.disableLink:link, a.disableLink:active {
+    text-decoration: none;
+    color: #CCCCCC;
+    background-color: #ffffff;
+}
+
+.pager li{
+    margin: 10px;
+}

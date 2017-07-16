@@ -3,14 +3,14 @@ import fetch from 'isomorphic-fetch';
 
 exports.getAllGames = (perPage, pageNumber) => {
     let url = config.domainName + '/api/game';
-    url = `${url}?n=${perPage}&p=${pageNumber}`;
+    url = `${url}?pp=${perPage}&pn=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }
 
 exports.getAllVideos = (perPage, pageNumber) => {
     let url = config.domainName + '/api/video';
-    url = `${url}?n=${perPage}&p=${pageNumber}`;
+    url = `${url}?pp=${perPage}&pn=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }
@@ -51,7 +51,6 @@ exports.getTransaction = (transactionID) => {
 
 exports.getVideoDetails = (videoID) => {
     let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoID}&key=AIzaSyB7Zk1X9GB5MdxnRSxVWmdv3MwSbHU9RHA`;
-    console.log(url);
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }

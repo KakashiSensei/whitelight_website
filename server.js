@@ -6,7 +6,6 @@ import Routes from "./src/react/Routes";
 import path from 'path';
 import Helmet from "react-helmet";
 import favicon from 'serve-favicon';
-// import config from 'config';
 
 const app = express();
 app.use(express.static(path.join(__dirname, 'dist')));

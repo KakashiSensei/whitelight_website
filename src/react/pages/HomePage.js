@@ -26,18 +26,54 @@ export default class HomePage extends Component {
     }
 
     componentDidMount() {
-        Requests.getAllGames()
+        Requests.getAllGames(6, 1)
             .then((data) => {
-                this.setState({ "games": data })
+                this.setState({ "games": data.items })
             })
 
-        Requests.getAllVideos()
-            .then((data)=>{
-                this.setState({ "videos": data })
+        Requests.getAllVideos(6, 1)
+            .then((data) => {
+                this.setState({ "videos": data.items })
             })
     }
 
     render() {
+        let gameComponent = <div></div>;
+        if (this.state.games) {
+            gameComponent =
+                <div className="row">
+                    <div className="topic">
+                        Play Games
+                                </div>
+                    <div>
+                        <CardDeckComp games={this.state.games} />
+                    </div>
+                    <div className="alignRight">
+                        <Link to="/game">
+                            more
+                        </Link>
+                    </div>
+                </div>
+        }
+
+        let videoComponent = <div></div>;
+        if (this.state.videos) {
+            videoComponent =
+                <div className="row">
+                    <div className="topic">
+                        Watch Video
+                                </div>
+                    <div>
+                        <VideoDeckComp videos={this.state.videos} />
+                    </div>
+                    <div className="alignRight">
+                        <Link to="/video">
+                            more
+                        </Link>
+                    </div>
+                </div>
+        }
+
         return (
             <div>
                 <HomeHeader />
@@ -45,34 +81,10 @@ export default class HomePage extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">
-                            <div className="row">
-                                <div className="topic">
-                                    Play Games
-                                </div>
-                                <div>
-                                    <CardDeckComp games={this.state.games} />
-                                </div>
-                                <div className="alignRight">
-                                    <Link to="/game">
-                                        more
-                                    </Link>
-                                </div>
-                            </div>
-                            <br/>
-                            <br/>
-                            <div className="row">
-                                <div className="topic">
-                                    Watch Video
-                                </div>
-                                <div>
-                                    <VideoDeckComp videos={this.state.videos} />
-                                </div>
-                                <div className="alignRight">
-                                    <Link to="/video">
-                                        more
-                                    </Link>
-                                </div>
-                            </div>
+                            {gameComponent}
+                            <br />
+                            <br />
+                            {videoComponent}
                         </div>
                         <div className="col-md-3 recommendedMargin">
                             <FacebookPagePlugin />

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import VideoDeckComp from "../components/VideoDeckComp";
+import FacebookPagePlugin from "../components/FacebookPagePlugin";
+import * as Requests from "../Requests";
 
 export default class MoreVideos extends Component {
     constructor(props) {

@@ -8,7 +8,6 @@ import CardDeckComp from "../components/CardDeckComp";
 import VideoDeckComp from "../components/VideoDeckComp";
 import HomeHeader from "../headers/HomeHeader";
 import * as Requests from "../Requests";
-import FooterComp from "../components/FooterComp";
 import { Link } from "react-router-dom";
 
 if (process.env.BROWSER) {

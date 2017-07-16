@@ -1,11 +1,11 @@
 {
   "scripts": {
     "watch": "nodemon serverDev.js",
-    "build": "webpack & webpack --config webpack.server.config",
-    "heroku": "node serverDev.js",
-    "build:watch": "webpack --watch & webpack --config webpack.server.config --watch",
+    "build": "webpack",
+    "heroku": "node server.js",
+    "build:watch": " babel server.js --out-file serverDev.js -w & babel src/ -d serverBuild -w & webpack --watch",
     "dev": "webpack-dev-server --config webpack.server.config",
-    "prod": "webpack -p & webpack --config webpack.server.config -p",
+    "prod": "webpack -p",
     "postinstall": "npm run prod"
   },
   "dependencies": {

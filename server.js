@@ -1,8 +1,8 @@
 import express from "express";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { StaticRouter } from "react-router";
-import Routes from "./src/react/Routes";
+import { StaticRouter } from "react-router-dom";
+import Routes from "./serverBuild/react/Routes";
 import path from 'path';
 import Helmet from "react-helmet";
 import favicon from 'serve-favicon';

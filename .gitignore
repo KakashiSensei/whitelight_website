@@ -2,3 +2,4 @@ node_modules
 serverDev.js
 serverDev.js.map
 dist
+serverBuild

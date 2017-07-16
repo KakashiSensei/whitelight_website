@@ -4,8 +4,7 @@
     "build": "webpack",
     "heroku": "node serverDev.js",
     "build:watch": " babel server.js --out-file serverDev.js -w & babel src/ -d serverBuild -w & webpack --watch",
-    "dev": "webpack-dev-server --config webpack.server.config",
-    "prod": "babel server.js --out-file serverDev.js & babel src/ -d serverBuild & webpack -p",
+    "prod": "babel server.js --out-file serverDev.js & babel src/ -d serverBuild & webpack --config webpack.config.prod -p",
     "postinstall": "npm run prod"
   },
   "dependencies": {

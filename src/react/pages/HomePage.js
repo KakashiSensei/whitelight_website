@@ -38,7 +38,7 @@ export default class HomePage extends Component {
 
     render() {
         let gameComponent = <div></div>;
-        if (this.state.games) {
+        if (this.state.games && this.state.games.length > 0) {
             gameComponent =
                 <div className="row">
                     <div className="topic">
@@ -56,7 +56,7 @@ export default class HomePage extends Component {
         }
 
         let videoComponent = <div></div>;
-        if (this.state.videos) {
+        if (this.state.videos && this.state.videos.length > 0) {
             videoComponent =
                 <div className="row">
                     <div className="topic">

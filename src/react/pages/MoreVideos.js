@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import VideoDeckComp from "../components/VideoDeckComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import * as Requests from "../Requests";
+import { Link } from "react-router-dom";
+import * as AppHelper from "../helper/AppHelper";
+import * as Constants from "../../Constants";
 
 export default class MoreVideos extends Component {
     constructor(props) {
@@ -49,7 +52,7 @@ export default class MoreVideos extends Component {
                         Videos
                         </div>
                     <div>
-                        <CardDeckComp videos={this.state.videos} />
+                        <VideoDeckComp videos={this.state.videos} />
                     </div>
                 </div>
 
@@ -72,7 +75,7 @@ export default class MoreVideos extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container recommendedMargin">
                 <div className="row">
                     <div className="col-md-12">
                         {videoComponent}

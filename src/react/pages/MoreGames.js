@@ -78,7 +78,7 @@ export default class MoreGames extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container recommendedMargin">
                 <div className="row">
                     <div className="col-md-12">
                         {gameComponent}

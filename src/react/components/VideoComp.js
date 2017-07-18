@@ -35,15 +35,17 @@ export default class CardComp extends Component {
         }
 
         return(
-            <Card block className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver" onClick={()=>{this.props.videoClicked(this.props.videoID)}}>
-                <div>
-                    <CardImg top width="100%" src={this.state.videoThumb} alt="Card image cap" />
-                    <CardBlock>
-                        <CardTitle width="100%" className="questionTitle">{this.state.videoTitle}</CardTitle>
-                    </CardBlock>
-                </div>
-                <br />
-            </Card>
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <Card onClick={()=>{this.props.videoClicked(this.props.videoID)}}>
+                        <div>
+                            <CardImg className="roundedCorner" top width="100%" src={this.state.videoThumb} alt="Card image cap" />
+                            <CardBlock>
+                                <CardTitle width="100%" className="questionTitle">{this.state.videoTitle}</CardTitle>
+                            </CardBlock>
+                        </div>
+                        <br />
+                    </Card>
+            </div>
         )
     }
 }

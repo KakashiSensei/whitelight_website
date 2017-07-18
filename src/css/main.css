@@ -10,7 +10,7 @@ body {
     background-color: #F9F9F9;
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Avenir Next';
 }
 
 @media (max-width: 1024px){
@@ -23,6 +23,11 @@ body {
 @font-face {
     font-family: "Molleat";
     src: url("/src/asset/font/Molleat.otf");
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    src: url("/src/asset/font/avenir-next-regular.ttf");
 }
 
 .navbar{
@@ -48,23 +53,20 @@ body {
 }
 
 .topic{
-    font-size: 18px;
-    color: #622F92;
+    font-size: 30px;
+    color: #4F4F4F;
     margin-bottom: 20px;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .questionTitle{
-    font-size: 15px;
+    font-size: 25px;
     color: black;
     padding: 10px;
+    padding-top: 20px;
     margin: 0px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    line-height: 1.4em;        /* fallback */
-    max-height: 3.6em;       /* fallback */
+    line-height: 140%;
 }
 
 .jumbotron{
@@ -74,10 +76,6 @@ body {
 
 .imageSize{
     width: 100%;
-}
-
-.rollOver{
-    cursor: pointer;
 }
 
 .gameContainer {
@@ -199,11 +197,6 @@ body {
     font-size: 25px;
 }
 
-.cardImage{
-    width: 300px;
-    height: 200px
-}
-
 .positionLoader{
     position: absolute;
     left: 50%;
@@ -211,10 +204,6 @@ body {
     -ms-transform: translate(-50%, 100%) scale(0.5); /* IE 9 */
     -webkit-transform: translate(-50%, 100%) scale(0.5); /* Chrome, Safari, Opera */
     transform: translate(-50%, 100%) scale(0.5);
-}
-
-.cardSizing{
-    padding: 0px;
 }
 
 .paddingTitle{
@@ -269,4 +258,25 @@ body {
 
 .pager li{
     margin: 10px;
+}
+
+.containerMargin {
+    margin: 20px
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.roundedCorner {
+    border-radius: 15px;
+}
+
+.more{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
 }

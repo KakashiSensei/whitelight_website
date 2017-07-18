@@ -42,14 +42,16 @@ export default class HomePage extends Component {
             gameComponent =
                 <div className="row">
                     <div className="topic">
-                        Play Games
+                        GAMES
                                 </div>
                     <div>
                         <CardDeckComp games={this.state.games} />
                     </div>
                     <div className="alignRight">
                         <Link to="/game">
-                            more
+                            <div className="more">
+                                more
+                            </div>
                         </Link>
                     </div>
                 </div>
@@ -60,14 +62,16 @@ export default class HomePage extends Component {
             videoComponent =
                 <div className="row">
                     <div className="topic">
-                        Watch Video
+                        VIDEOS
                                 </div>
                     <div>
                         <VideoDeckComp videos={this.state.videos} />
                     </div>
                     <div className="alignRight">
                         <Link to="/video">
-                            more
+                            <div className="more">
+                                more
+                            </div>
                         </Link>
                     </div>
                 </div>
@@ -78,14 +82,14 @@ export default class HomePage extends Component {
                 <HomeHeader />
                 <JumbotronComp />
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-9">
+                    <div className="row containerMargin">
+                        <div className="col-md-8">
                             {gameComponent}
                             <br />
                             <br />
                             {videoComponent}
                         </div>
-                        <div className="col-md-3 recommendedMargin">
+                        <div className="col-md-4 recommendedMargin">
                             <FacebookPagePlugin />
                         </div>
                     </div>

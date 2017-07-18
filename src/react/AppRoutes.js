@@ -10,7 +10,7 @@ if (process.env.BROWSER) {
     require('../asset/f_logo_with_white_back.png');
     require('../css');
     require('../asset/font/Molleat.otf');
-    require('../asset/font/fontawesome-webfont.woff2');
+    require('../asset/font/avenir-next-regular.ttf');
 }
 
 export default class AppRoutes extends Component {

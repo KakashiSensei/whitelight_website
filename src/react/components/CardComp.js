@@ -18,17 +18,19 @@ export default class CardComp extends Component {
     render() {
         let url = "/game/" + this.props.id + "?title=" + this.props.title;
         return (
-            <Link to={url}>
-                <Card block className="col-xs-6 col-sm-6 col-md-4 col-lg-4 rollOver">
-                    <div>
-                        <CardImg top width="100%" src={this.props.introImage} alt="Card image cap" />
-                        <CardBlock>
-                            <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
-                        </CardBlock>
-                    </div>
-                    <br />
-                </Card>
-            </Link>
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <Link to={url}>
+                    <Card>
+                        <div>
+                            <CardImg className="roundedCorner" top width="100%" src={this.props.introImage} alt="Card image cap" />
+                            <CardBlock>
+                                <CardTitle width="100%" className="questionTitle">{this.props.title}</CardTitle>
+                            </CardBlock>
+                        </div>
+                        <br />
+                    </Card>
+                </Link>
+            </div>
         )
     }
 }

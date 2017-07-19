@@ -18,7 +18,7 @@ export default class CardComp extends Component {
     render() {
         let url = "/game/" + this.props.id + "?title=" + this.props.title;
         return (
-            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <Link to={url}>
                     <Card>
                         <div>

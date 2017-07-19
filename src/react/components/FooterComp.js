@@ -13,7 +13,7 @@ export default class FooterComp extends Component {
                         <a className="marginBetweenText" href='/contactus'>Contact Us</a>
                         <a className="marginBetweenText" href='/privacy'>Privacy</a>
                     </div>
-                    <div className="row centerAlign marginLinkFooter footerDisclamerColor">
+                    <div className="row centerAlign marginLinkFooter">
                         Disclaimer: All content is provided for fun and entertainment purposes only.
                     </div>
                 </div>

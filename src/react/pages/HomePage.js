@@ -90,7 +90,32 @@ export default class HomePage extends Component {
                             {videoComponent}
                         </div>
                         <div className="col-md-4 recommendedMargin">
-                            <FacebookPagePlugin />
+                            <div className="padding15">
+                                <div>
+                                    <FacebookPagePlugin />
+                                </div>
+                                <div className="paddingRecommendedQuote">
+                                    <div>
+                                        <h4>
+                                        Quote of the day
+                                        </h4>
+                                    </div>
+                                    <div>
+                                        <img className="imageSize roundedCorner" src="https://whitelight-quiz-questions.s3.amazonaws.com/group9Image.png"></img>
+                                    </div>
+                                    <div className="recommendedQuote">
+                                        Peace begins with a smile.
+                                    </div>
+                                </div>
+                                <div className="paddingRecommendedQuote">
+                                    <div>
+                                        <img className="imageSize roundedCorner" src="https://whitelight-quiz-questions.s3.amazonaws.com/GroupImage.png"></img>
+                                    </div>
+                                    <div className="recommendedQuote">
+                                        You can do it.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@ export default class MoreVideos extends Component {
         }
     }
 
-    setInitialState(location){
+    setInitialState(location) {
         let urlParams = AppHelper.urlParams(location);
         this.currentPage = +urlParams.pn || this.currentPage;
     }
@@ -38,7 +38,7 @@ export default class MoreVideos extends Component {
         }
     }
 
-    disableRedirection(){
+    disableRedirection() {
         return false
     }
 
@@ -56,13 +56,13 @@ export default class MoreVideos extends Component {
                     </div>
                 </div>
 
-            let previousButton = <li><a href= 'javascript:void(0);' className="disableLink">Previous</a></li>;
+            let previousButton = <li><a href='javascript:void(0);' className="disableLink">Previous</a></li>;
             if (this.currentPage > 1) {
                 let url = `/video?pn=${this.currentPage - 1}`;
                 previousButton = <li><Link to={url}>Previous</Link></li>
             }
 
-            let nextButton = <li><a href= 'javascript:void(0);' className="disableLink">Next</a></li>;
+            let nextButton = <li><a href='javascript:void(0);' className="disableLink">Next</a></li>;
             if (this.currentPage * Constants.PER_PAGE < this.totalCount) {
                 let url = `/video?pn=${this.currentPage + 1}`;
                 nextButton = <li><Link to={url}>Next</Link></li>
@@ -76,13 +76,35 @@ export default class MoreVideos extends Component {
 
         return (
             <div className="container recommendedMargin">
-                <div className="row">
-                    <div className="col-md-12">
+                <div className="row containerMargin">
+                    <div className="col-md-8">
                         {videoComponent}
+                        <div className="centerAlign">
+                            {pagerButton}
+                        </div>
                     </div>
-                </div>
-                <div className="centerAlign">
-                    {pagerButton}
+                    <div className="col-md-4 recommendedMargin">
+                        <div className="padding15">
+                            <div>
+                                <FacebookPagePlugin />
+                            </div>
+                            <div className="paddingRecommendedQuote">
+                                <div>
+                                    <h4>
+                                        Quote of the day
+                                </h4>
+                                </div>
+                                <div className="paddingRecommendedQuote">
+                                    <div>
+                                        <img className="imageSize roundedCorner" src="https://whitelight-quiz-questions.s3.amazonaws.com/GroupImage.png"></img>
+                                    </div>
+                                    <div className="recommendedQuote">
+                                        You can do it.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

@@ -43,7 +43,7 @@ export default class VideoDeckComp extends Component {
             overlayVideo = 
                 <div className="youtubeVideoDisplay" onClick={this.hideVideo}>
                     <div className="fullWindow">
-                        <YoutubeEmbedVideo videoId={this.videoIDClicked} suggestions={false}></YoutubeEmbedVideo>
+                        <YoutubeEmbedVideo size="large" videoId={this.videoIDClicked} suggestions={false}></YoutubeEmbedVideo>
                     </div>
                 </div> 
         }

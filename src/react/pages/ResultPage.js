@@ -38,7 +38,7 @@ export default class ResultPage extends Component {
                 })
             })
 
-        let transcationNumber = this.imageName.replace("image", "").replace(".png", "");
+        let transcationNumber = this.imageName.replace("image", "").replace(".jpg", "");
         Requests.getTransaction(transcationNumber)
             .then((data) => {
                 let outputText = data.outputText;
@@ -63,22 +63,27 @@ export default class ResultPage extends Component {
             <div>
                 <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-9">
-                            <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} outputText={this.state.outputText}/>
+                    <div className="row containerMargin">
+                        <div className="col-md-8">
+                            <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} outputText={this.state.outputText} />
                             <div className="recommendedMargin">
                                 <div>
                                     <div className="topic">
-                                        Play more games
+                                        MORE GAMES
                                     </div>
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} />
+                                        <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 recommendedMargin">
-                            <FacebookPagePlugin />
+                        <div className="col-md-4 recommendedMargin">
+                            <div>
+                                <FacebookPagePlugin />
+                            </div>
+                            <div>
+                                <CardDeckComp games={this.state.recommendedGames} contentPos="side" />
+                            </div>
                         </div>
                     </div>
                 </div>

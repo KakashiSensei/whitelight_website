@@ -55,7 +55,7 @@ export default class MoreGames extends Component {
                         Games
                         </div>
                     <div>
-                        <CardDeckComp games={this.state.games} />
+                        <CardDeckComp games={this.state.games} contentPos="main"/>
                     </div>
                 </div>
 

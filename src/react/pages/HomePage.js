@@ -45,7 +45,7 @@ export default class HomePage extends Component {
                         GAMES
                                 </div>
                     <div>
-                        <CardDeckComp games={this.state.games} />
+                        <CardDeckComp games={this.state.games} contentPos="main"/>
                     </div>
                     <div className="alignRight">
                         <Link to="/game">

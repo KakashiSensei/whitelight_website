@@ -9,6 +9,7 @@ export default class CardComp extends Component {
         id: PropTypes.string.isRequired,
         introImage: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        contentPos: PropTypes.string.isRequired
     }
 
     constructor(props) {
@@ -17,8 +18,12 @@ export default class CardComp extends Component {
 
     render() {
         let url = "/game/" + this.props.id + "?title=" + this.props.title;
+        let appliedClass = "col-xs-12 col-sm-12 col-md-6 col-lg-6";
+        if (this.props.contentPos === "side") {
+            appliedClass = "col-xs-12 col-sm-12 col-md-12 col-lg-12";
+        }
         return (
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div className={appliedClass}>
                 <Link to={url}>
                     <Card>
                         <div>

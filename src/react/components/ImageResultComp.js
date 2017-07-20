@@ -27,7 +27,7 @@ export default class ImageResultComp extends Component {
         }
 
         return (
-            <div className="gameOuterMargin gameContainer centerAlign addShadow">
+            <div className="gameOuterMargin gameContainer centerAlign addShadow" onClick={this.props.callbackFunction.bind(this)}>
                 <div className="row">
                     <div className="col-md-12 centerAlign gameTitle">
                         {this.props.title}
@@ -44,8 +44,8 @@ export default class ImageResultComp extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-4 col-md-push-4 centerAlign">
-                        <Button className="loginButton" size="lg" block onClick={this.props.callbackFunction.bind(this)}>
+                    <div className="col-md-6 col-md-push-3 centerAlign">
+                        <Button className="shareButton" size="lg" block>
                             <span className="loginIcon">
                                 <img src="/src/asset/f_logo_with_white_back.png" />
                             </span>

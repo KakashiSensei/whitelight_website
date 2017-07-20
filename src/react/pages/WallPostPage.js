@@ -109,7 +109,7 @@ export default class WallPostPage extends Component {
                                         Play more games
                                     </div>
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} />
+                                        <CardDeckComp games={this.state.recommendedGames} contentPos="recommended"/>
                                     </div>
                                 </div>
                             </div>

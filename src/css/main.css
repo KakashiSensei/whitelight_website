@@ -37,8 +37,8 @@ body {
 }
 
 .addShadow{
-    -webkit-box-shadow: 3px 6px 6px -6px #999;
-    -moz-box-shadow: 3px 6px 6px -6px #999;
+    -webkit-box-shadow: 1px 1px 3px -0px #999;
+    -moz-box-shadow: 1px 1px 3px -0px #999;
     box-shadow: 1px 1px 3px -0.5px #999;
 }
 
@@ -87,8 +87,8 @@ body {
 }
 
 .gameOuterMargin {
-    margin: 30px;
-    padding: 20px;
+    margin: 30px 15px;
+    padding: 20px 0px;
 }
 
 .gameTitle{
@@ -97,7 +97,7 @@ body {
 }
 
 .gameImageContainer{
-    margin-bottom: 20px
+    padding: 0px;
 }
 
 @media screen and (max-width: 520px) and (min-width: 320px){
@@ -107,18 +107,13 @@ body {
     }
 
     .gameImageContainer{
-        margin-bottom: 20px
+        margin-bottom: 20px;
+        padding: 0px;
     }
 }
 
 .questionImageSize{
-    max-height: 100%
-}
-
-@media screen and (max-width: 520) and (min-width: 320px){
-    .questionImageSize{
-        max-height: 120px
-    }
+    width: 100%
 }
 
 .imageSize{
@@ -132,11 +127,11 @@ body {
     background-color: #3B5998;
 }
 
-@media screen and (max-width: 520) and (min-width: 320px){
-    .loginButton, .loginButton:hover, .loginButton:focus {
-        color: #FFFFFF;
-        background-color: #3B5998;
-    }
+.shareButton, .shareButton:hover, .shareButton:focus {
+    color: #FFFFFF;
+    background-color: #3B5998;
+    width: 250px;
+    display: inline-block;
 }
 
 .loginIcon {
@@ -293,4 +288,18 @@ body {
     -ms-transform: translate(-10px, -25px); /* IE 9 */
     -webkit-transform: translate(-10px, -25px); /* Safari */
     transform: translate(-10px, -25px);
+}
+
+.likeIframe{
+    border: none;
+    overflow:hidden;
+    scrolling: no;
+    frameborder: 0;
+    allowTransparency:true;
+    width:90px;
+    height:28px;
+}
+
+.likeIframeContainer{
+    margin: 20px;
 }

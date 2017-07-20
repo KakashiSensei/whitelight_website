@@ -3,7 +3,7 @@
     "watch": "nodemon serverDev.js",
     "build": "webpack",
     "heroku": "node serverDev.js",
-    "build:watch": " babel server.js --out-file serverDev.js -w & babel src/ -d serverBuild -w & webpack --watch",
+    "build:watch": "REST_API=http://localhost:3000 APP_ID=1866917183572616 babel server.js --out-file serverDev.js -w & babel src/ -d serverBuild -w & webpack --watch",
     "prod": "babel server.js --out-file serverDev.js & babel src/ -d serverBuild & webpack --config webpack.config.prod -p",
     "postinstall": "npm run prod"
   },

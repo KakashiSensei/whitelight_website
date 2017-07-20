@@ -13,7 +13,7 @@ if (process.env.BROWSER) {
     require('../../css');
 }
 
-export default class HomePage extends Component {
+export default class GamePage extends Component {
     title;
     gameID;
     introImage;
@@ -103,22 +103,27 @@ export default class HomePage extends Component {
             <div>
                 <GameHeader title={this.title} url={this.props.location} />
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-9">
+                    <div className="row containerMargin">
+                        <div className="col-md-8">
                             {questionContainer}
                             <div className="recommendedMargin">
                                 <div>
                                     <div className="topic">
-                                        Play more games
+                                        MORE GAMES
                                     </div>
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} />
+                                        <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3 recommendedMargin">
-                            <FacebookPagePlugin />
+                        <div className="col-md-4 recommendedMargin">
+                            <div>
+                                <FacebookPagePlugin />
+                            </div>
+                            <div>
+                                <CardDeckComp games={this.state.recommendedGames} contentPos="side" />
+                            </div>
                         </div>
                     </div>
                 </div>

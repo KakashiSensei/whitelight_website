@@ -6,7 +6,6 @@ import {
 import Routes from "./Routes";
 if (process.env.BROWSER) {
     require('../asset/bgimage.png');
-    require('../asset/footerImage.png');
     require('../asset/play.png');
     require('../asset/f_logo_with_white_back.png');
     require('../css');

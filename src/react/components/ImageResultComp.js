@@ -36,10 +36,12 @@ export default class ImageResultComp extends Component {
                 <div className="row">
                     <div className="col-md-12 centerAlign">
                         <img className="imageSize" src={this.props.resultImage}></img>
-                        <div className="row">
-                            <div style={divStyle} className="innerTextPadding col-md-12">
-                                {parsedElement}
-                            </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div style={divStyle} className="col-md-12">
+                        <div className="innerTextPadding">
+                            {parsedElement}
                         </div>
                     </div>
                 </div>

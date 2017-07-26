@@ -13,14 +13,8 @@ import FooterComp from './components/FooterComp';
 
 export default class Routes extends Component {
     render() {
-        let backgroundCSS = {
-            backgroundImage: `url("/src/asset/footerImage.png")`,
-            backgroundPosition: "center bottom",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-        }
         return (
-            <div style={backgroundCSS}>
+            <div>
                 <NavBarComp />
                 <Switch>
                     <Route exact path="/" component={HomePage} />

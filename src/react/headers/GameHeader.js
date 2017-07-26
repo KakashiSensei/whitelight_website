@@ -3,6 +3,7 @@ import { Helmet, title } from "react-helmet";
 import * as config from "../../config";
 import { PropTypes } from "prop-types";
 import decode from "urldecode";
+import * as helper from "../helper/AppHelper";
 
 export default class GameHeader extends Component {
     static propTypes = {
@@ -17,7 +18,8 @@ export default class GameHeader extends Component {
     render() {
         let regEx = new RegExp(/[+]/g)
         let website = this.props.url;
-        let imageURL = "https://scontent-sin6-1.xx.fbcdn.net/v/t31.0-8/17157436_211385332672148_579550780088126766_o.jpg?oh=b03f3449493b1d847523ecdc4f73346d&oe=597FECCF";
+        let params = helper.urlParams(website);
+        let imageURL = config.questionContainer + "/" + params.image;
 
         return (
             <Helmet>

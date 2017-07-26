@@ -21,8 +21,8 @@ exports.getGame = (gameID) => {
         .then(res => res.json())
 }
 
-exports.getRecommendedGames = (gameID) => {
-    let url = config.domainName + '/api/recommendedGames/' + gameID;
+exports.getRecommendedGames = (gameID, num) => {
+    let url = config.domainName + '/api/recommendedGames/' + gameID + '?num=' + num;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }

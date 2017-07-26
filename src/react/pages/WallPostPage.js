@@ -42,7 +42,7 @@ export default class WallPostPage extends Component {
                 })
             })
 
-        Requests.getRecommendedGames(this.gameID)
+        Requests.getRecommendedGames(this.gameID, 4)
             .then((data) => {
                 this.setState({
                     recommendedGames: data

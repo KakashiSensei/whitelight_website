@@ -31,7 +31,7 @@ export default class ResultPage extends Component {
     }
 
     componentDidMount() {
-        Requests.getRecommendedGames(this.gameID)
+        Requests.getRecommendedGames(this.gameID, 4)
             .then((data) => {
                 this.setState({
                     recommendedGames: data

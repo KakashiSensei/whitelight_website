@@ -25,15 +25,21 @@ export default class HomePage extends Component {
     }
 
     componentDidMount() {
-        Requests.getAllGames(6, 1)
-            .then((data) => {
-                this.setState({ "games": data.items })
-            })
+        // Requests.getAllGames(6, 1)
+        //     .then((data) => {
+        //         // console.log(JSON.stringify(data));
+        //         this.setState({ "games": data.items })
+        //     })
+        let gameObject = config.gameJSON;
+        this.setState({"games": gameObject.items});
 
-        Requests.getAllVideos(6, 1)
-            .then((data) => {
-                this.setState({ "videos": data.items })
-            })
+        // Requests.getAllVideos(6, 1)
+        //     .then((data) => {
+        //         console.log(JSON.stringify(data));
+        //         this.setState({ "videos": data.items })
+        //     })
+        let videoObject = config.videoJSON;
+        this.setState({"videos": videoObject.items})
     }
 
     render() {

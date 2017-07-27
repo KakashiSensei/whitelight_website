@@ -14,7 +14,7 @@ import FooterComp from './components/FooterComp';
 if (process.env.BROWSER) {
     var ReactGA = require('react-ga');
     ReactGA.initialize('UA-101643128-1', {
-        debug: false,
+        debug: true,
         titleCase: false
     });
 }

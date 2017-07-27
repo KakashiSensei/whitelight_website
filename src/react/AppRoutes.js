@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import ReactDom from "react-dom";
 import {
     BrowserRouter as Router, useRouterHistory
-} from 'react-router-dom'
+} from 'react-router-dom';
 import Routes from "./Routes";
+
 if (process.env.BROWSER) {
     require('../asset/bgimage.png');
     require('../asset/play.png');

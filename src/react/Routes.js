@@ -11,11 +11,27 @@ import MoreVideos from './pages/MoreVideos';
 import NavBarComp from './components/NavBarComp';
 import FooterComp from './components/FooterComp';
 
+if (process.env.BROWSER) {
+    var ReactGA = require('react-ga');
+    ReactGA.initialize('UA-101643128-1', {
+        debug: false,
+        titleCase: false
+    });
+}
+const logPageView = () => {
+    if (process.env.BROWSER && process.env.NODE_ENV === "production") {
+        ReactGA.set({ page: window.location.pathname });
+        ReactGA.pageview(window.location.pathname);
+    }
+    return null;
+};
+
 export default class Routes extends Component {
     render() {
         return (
             <div>
                 <NavBarComp />
+                <Route path="/" component={logPageView} />
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/game" component={MoreGames} />
@@ -25,7 +41,7 @@ export default class Routes extends Component {
                     <Route exact path="/game/wallpost/:id" component={WallPostPage} />
                     <Route exact path="/privacy" component={PrivacyPage} />
                     <Route exact path="/contactus" component={ContactUsPage} />
-                    <Route component={HomePage}/>
+                    <Route component={HomePage} />
                 </Switch>
                 <FooterComp />
             </div>

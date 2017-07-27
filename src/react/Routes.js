@@ -19,7 +19,9 @@ if (process.env.BROWSER) {
     });
 }
 const logPageView = () => {
-    if (process.env.BROWSER && process.env.NODE_ENV === "production") {
+    console.log("BROWSER", process.env.BROWSER);
+    console.log("NODE_ENV", process.env.NODE_ENV);
+    if (process.env.BROWSER && process.env.NODE_ENV !== "development") {
         ReactGA.set({ page: window.location.pathname });
         ReactGA.pageview(window.location.pathname);
     }

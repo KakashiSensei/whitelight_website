@@ -22,6 +22,7 @@ export default class MoreVideos extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         Requests.getAllVideos(Constants.PER_PAGE, this.currentPage)
             .then((data) => {
                 this.totalCount = data.count;

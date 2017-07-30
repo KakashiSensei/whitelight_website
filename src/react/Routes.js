@@ -14,13 +14,11 @@ import FooterComp from './components/FooterComp';
 if (process.env.BROWSER) {
     var ReactGA = require('react-ga');
     ReactGA.initialize('UA-101643128-1', {
-        debug: true,
+        debug: false,
         titleCase: false
     });
 }
 const logPageView = () => {
-    console.log("BROWSER", process.env.BROWSER);
-    console.log("NODE_ENV", process.env.NODE_ENV);
     if (process.env.BROWSER && process.env.NODE_ENV !== "development") {
         ReactGA.set({ page: window.location.pathname });
         ReactGA.pageview(window.location.pathname);

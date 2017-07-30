@@ -125,6 +125,7 @@ body {
 .loginButton, .loginButton:hover, .loginButton:focus {
     color: #FFFFFF;
     background-color: #3B5998;
+    margin-top: 20px;
 }
 
 .shareButton, .shareButton:hover, .shareButton:focus {
@@ -298,8 +299,4 @@ body {
     allowTransparency:true;
     width:90px;
     height:28px;
-}
-
-.likeIframeContainer{
-    margin: 20px;
 }

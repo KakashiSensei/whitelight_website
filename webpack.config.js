@@ -56,7 +56,7 @@ module.exports = {
             "process.env": {
                 'BROWSER': JSON.stringify(true),
                 'NODE_ENV': JSON.stringify('development'),
-                'REST_API': JSON.stringify('http://localhost:3000'),
+                'REST_API': JSON.stringify('https://white-light-rest-api.herokuapp.com'),
                 'APP_ID': JSON.stringify("1866917183572616")
             }
         }),

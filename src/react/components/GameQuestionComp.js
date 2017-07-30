@@ -29,11 +29,8 @@ export default class GameQuestionComp extends Component {
                             <img className="questionImageSize" src={this.props.introImage} />
                         </div>
                     </div>
-                    <div className="centerAlign likeIframeContainer">
-                        <iframe className="likeIframe" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fwhitelight.social%2F&width=90&layout=button_count&action=like&size=large&show_faces=false&share=false&height=21&appId=1778022462419350"></iframe>
-                    </div>
                     <div className="row">
-                        <div className="col-md-4 col-md-push-4 centerAlign">
+                        <div className="col-md-6 col-md-push-3 centerAlign">
                             <Button className="loginButton" size="lg" onClick={this.props.callbackFunction.bind(this)}>
                                 <span className="loginIcon">
                                     <img src="/src/asset/f_logo_with_white_back.png" />

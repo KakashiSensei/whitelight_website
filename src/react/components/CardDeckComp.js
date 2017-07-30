@@ -7,6 +7,7 @@ export default class CardDeckComp extends Component {
     static propType = {
         games: PropTypes.shape({
             _id: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
             introImage: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired
         }).isRequired,
@@ -25,7 +26,7 @@ export default class CardDeckComp extends Component {
         return (
             <CardDeck className="row">
                 {this.props.games && this.props.games.map((element, index)=>{
-                    return (<CardComp key={element._id} id={element._id} title={element.title} introImage={element.introImage} contentPos={this.props.contentPos}/>);
+                    return (<CardComp key={element._id} id={element._id} title={element.title} introImage={element.introImage} description={element.description} contentPos={this.props.contentPos}/>);
                 })}
             </CardDeck>
         )

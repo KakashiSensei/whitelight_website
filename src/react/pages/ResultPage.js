@@ -31,6 +31,7 @@ export default class ResultPage extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         Requests.getRecommendedGames(this.gameID, 4)
             .then((data) => {
                 this.setState({

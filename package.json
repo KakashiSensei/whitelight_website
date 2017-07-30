@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "watch": "nodemon serverDev.js",
+    "start": "nodemon serverDev.js",
     "build": "webpack",
     "heroku": "node serverDev.js",
     "build:watch": "REST_API=http://localhost:3000 APP_ID=1866917183572616 babel server.js --out-file serverDev.js -w & babel src/ -d serverBuild -w & webpack --watch",

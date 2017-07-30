@@ -25,6 +25,7 @@ export default class MoreGames extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         Requests.getAllGames(Constants.PER_PAGE, this.currentPage)
             .then((data) => {
                 this.totalCount = data.count;

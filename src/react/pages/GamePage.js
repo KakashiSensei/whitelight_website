@@ -15,6 +15,7 @@ if (process.env.BROWSER) {
 
 export default class GamePage extends Component {
     title;
+    description;
     gameID;
     introImage;
 
@@ -32,6 +33,7 @@ export default class GamePage extends Component {
     setInitialState(pathName) {
         let urlParams = AppHelper.urlParams(this.props.location);
         this.title = urlParams["title"];
+        this.description = urlParams["description"];
         this.gameID = pathName.split("/").pop();
     }
 
@@ -101,7 +103,7 @@ export default class GamePage extends Component {
 
         return (
             <div>
-                <GameHeader title={this.title} url={this.props.location} />
+                <GameHeader title={this.title} url={this.props.location} description={this.description}/>
                 <div className="container">
                     <div className="row containerMargin">
                         <div className="col-md-8">

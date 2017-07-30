@@ -25,6 +25,7 @@ export default class HomePage extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         // Requests.getAllGames(6, 1)
         //     .then((data) => {
         //         // console.log(JSON.stringify(data));

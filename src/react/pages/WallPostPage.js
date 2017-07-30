@@ -32,6 +32,7 @@ export default class WallPostPage extends Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         Requests.getGame(this.gameID)
             .then((data) => {
                 this.title = data.title;

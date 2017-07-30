@@ -18,7 +18,6 @@ export default class CardComp extends Component {
     }
 
     render() {
-        console.log("description", this.props.description);
         let image = this.props.introImage.split("/");
         let url = "/game/" + this.props.id + "?title=" + this.props.title + "&image=" + image[image.length - 1] + "&description=" + this.props.description;
         let appliedClass = "col-xs-12 col-sm-12 col-md-6 col-lg-6";

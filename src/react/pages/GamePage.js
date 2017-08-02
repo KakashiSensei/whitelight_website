@@ -129,6 +129,7 @@ export default class GamePage extends Component {
                         </div>
                     </div>
                 </div>
+                <div className="shareaholic-canvas" data-app="recommendations" data-app-id="27317150"></div>
             </div>
         )
     }

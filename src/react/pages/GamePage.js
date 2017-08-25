@@ -3,7 +3,6 @@ import GameHeader from "../headers/GameHeader";
 import * as Requests from "../Requests";
 import GameQuestionComp from "../components/GameQuestionComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
-import config from "../../config";
 import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
 import FacebookHelper from "../helper/FacebookHelper";
@@ -129,7 +128,6 @@ export default class GamePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="shareaholic-canvas" data-app="recommendations" data-app-id="27317150"></div>
             </div>
         )
     }

@@ -32,7 +32,6 @@ function renderPage(appHtml, helmet) {
     ${helmet.meta.toString()}
     <head>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="3cac38b1c33af8bd957a9222fed4acc4" async="async"></script>
     </head>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <body>

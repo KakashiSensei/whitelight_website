@@ -2,21 +2,21 @@ import config from "../config";
 import fetch from 'isomorphic-fetch';
 
 exports.getAllGames = (perPage, pageNumber) => {
-    let url = config.domainName + '/api/game';
+    let url = config.domainName + '/api/website/game';
     url = `${url}?pp=${perPage}&pn=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }
 
 exports.getAllVideos = (perPage, pageNumber) => {
-    let url = config.domainName + '/api/video';
+    let url = config.domainName + '/api/website/video';
     url = `${url}?pp=${perPage}&pn=${pageNumber}`;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }
 
 exports.getGame = (gameID) => {
-    let url = config.domainName + '/api/game/' + gameID;
+    let url = config.domainName + '/api/website/game/' + gameID;
     return fetch(url, { method: 'GET' })
         .then(res => res.json())
 }

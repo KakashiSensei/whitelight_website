@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import config from "../../config";
 import { Button } from 'reactstrap';
 import Parser from "html-react-parser";
 

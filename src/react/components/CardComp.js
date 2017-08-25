@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBlock, CardTitle } from 'reactstrap';
 import PropTypes from "prop-types";
-import config from "../../config";
 import { Link } from "react-router-dom";
 
 export default class CardComp extends Component {

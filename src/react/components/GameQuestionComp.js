@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import config from "../../config";
 import { Button } from 'reactstrap';
 
 export default class GameQuestionComp extends Component {

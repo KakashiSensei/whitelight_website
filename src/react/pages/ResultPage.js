@@ -66,14 +66,18 @@ export default class ResultPage extends Component {
                 <div className="container">
                     <div className="row containerMargin">
                         <div className="col-md-8">
-                            <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} outputText={this.state.outputText} />
+                            <div className="row">
+                                <ImageResultComp id={this.gameID} resultImage={this.imageFullPath} title={this.title} callbackFunction={this.shareClicked} outputText={this.state.outputText} />
+                            </div>
                             <div className="recommendedMargin">
-                                <div>
-                                    <div className="topic">
-                                        MORE GAMES
-                                    </div>
+                                <div className="row">
                                     <div>
-                                        <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
+                                        <div className="topic">
+                                            MORE GAMES
+                                    </div>
+                                        <div>
+                                            <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

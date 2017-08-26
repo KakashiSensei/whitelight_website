@@ -27,10 +27,8 @@ export default class ImageResultComp extends Component {
 
         return (
             <div className="gameOuterMargin gameContainer centerAlign addShadow" onClick={this.props.callbackFunction.bind(this)}>
-                <div className="row">
-                    <div className="col-md-12 centerAlign gameTitle">
-                        {this.props.title}
-                    </div>
+                <div className="col-md-12 centerAlign gameTitle">
+                    {this.props.title}
                 </div>
                 <div className="row">
                     <div className="col-md-12 centerAlign">

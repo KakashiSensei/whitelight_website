@@ -102,18 +102,22 @@ export default class GamePage extends Component {
 
         return (
             <div>
-                <GameHeader title={this.title} url={this.props.location} description={this.description}/>
+                <GameHeader title={this.title} url={this.props.location} description={this.description} />
                 <div className="container">
                     <div className="row containerMargin">
                         <div className="col-md-8">
-                            {questionContainer}
+                            <div className="row">
+                                {questionContainer}
+                            </div>
                             <div className="recommendedMargin">
                                 <div>
-                                    <div className="topic">
-                                        MORE GAMES
+                                    <div className="row">
+                                        <div className="topic">
+                                            MORE GAMES
                                     </div>
-                                    <div>
-                                        <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
+                                        <div>
+                                            <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -79,7 +79,7 @@ export default class GamePage extends Component {
 
                 Requests.getGameResult(uid, accessToken, this.gameID).then((res) => {
                     let name = res.Key;
-                    let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title;
+                    let linkAddress = "/game/result/" + this.gameID + "?image=" + name + "&title=" + this.title + "&description=" + this.description;
                     _this.props.history.push(linkAddress);
                 });
             })

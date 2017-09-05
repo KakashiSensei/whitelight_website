@@ -13,12 +13,14 @@ export default class WallPostPage extends Component {
     introImage;
     imageFullPath;
     fullURL;
+    description;
 
     constructor(props) {
         super(props);
         let pathName = this.props.location.pathname;
         let urlParams = AppHelper.urlParams(this.props.location);
         let imageName = urlParams["image"];
+        this.description = urlParams["description"];
         this.imageFullPath = config.storageContainer + "/" + imageName;
         this.title = urlParams["title"];
         this.gameID = pathName.split("/").pop();
@@ -99,7 +101,7 @@ export default class WallPostPage extends Component {
 
         return (
             <div>
-                <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
+                <ResultHeader title={this.title} image={this.imageFullPath} url={this.props.location} description={this.description}/>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9">

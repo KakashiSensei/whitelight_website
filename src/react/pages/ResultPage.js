@@ -13,6 +13,7 @@ export default class ResultPage extends Component {
     imageFullPath;
     fullURL;
     imageName;
+    description;
 
     constructor(props) {
         super(props);
@@ -20,6 +21,7 @@ export default class ResultPage extends Component {
         let urlParams = AppHelper.urlParams(this.props.location);
         this.title = urlParams["title"];
         this.imageName = urlParams["image"];
+        this.description = urlParams["description"];
         this.imageFullPath = config.storageContainer + "/" + this.imageName;
         this.gameID = pathName.split("/").pop();
         this.fullURL = config.website + this.props.location.pathname + this.props.location.search;
@@ -50,7 +52,7 @@ export default class ResultPage extends Component {
     }
 
     shareClicked(e) {
-        let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName + "&title=" + this.title;
+        let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName + "&title=" + this.title + "&description=" + this.description;
         FB.ui({
             method: 'share',
             display: 'popup',
@@ -62,7 +64,7 @@ export default class ResultPage extends Component {
         let style = { width: "0px", height: "0px", margin: "0px", padding: "0px" };
         return (
             <div>
-                <ResultHeader title={this.title} image={this.imageFullPath} url={this.fullURL} />
+                <ResultHeader title={this.title} image={this.imageFullPath} url={this.props.location} description={this.description}/>
                 <div className="container">
                     <div className="row containerMargin">
                         <div className="col-md-8">

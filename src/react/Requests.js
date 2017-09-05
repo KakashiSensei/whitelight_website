@@ -46,12 +46,18 @@ exports.getTransaction = (transactionID) => {
     return fetch(url, {
         method: 'GET'
     })
-    .then(res => res.json())
+        .then(res => res.json())
 }
 
 exports.getVideoDetails = (videoID) => {
     let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoID}&key=AIzaSyB7Zk1X9GB5MdxnRSxVWmdv3MwSbHU9RHA`;
     return fetch(url, { method: 'GET' })
+        .then(res => res.json())
+}
+
+exports.scarpImage = (url) => {
+    let scrapURL = `https://developers.facebook.com/tools/debug/sharing/?q=${url}`
+    return fetch(scrapURL, { method: 'GET' })
         .then(res => res.json())
 }
 

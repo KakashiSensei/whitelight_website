@@ -30,6 +30,16 @@ export default class ResultPage extends Component {
             recommendedGames: [],
             outputText: null
         }
+
+        let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName + "&title=" + this.title + "&description=" + this.description;
+        // scrap the wallpost link here
+        this.scrapHere(shareURL);
+    }
+
+    scrapHere(shareURL){
+        Requests.scarpImage(shareURL).then(()=>{
+            debugger;
+        })
     }
 
     componentDidMount() {

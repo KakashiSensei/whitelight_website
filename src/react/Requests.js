@@ -63,6 +63,6 @@ exports.scarpImage = (url) => {
         }, (response) => {
             return resolve();
         });
-    })   .then(res => res.json())
+    })
 }
 

@@ -56,9 +56,13 @@ exports.getVideoDetails = (videoID) => {
 }
 
 exports.scarpImage = (url) => {
-    let scrapURL = `https://developers.facebook.com/tools/debug/sharing/?q=${url}`;
-    console.log("scrapURL", scrapURL);
-    return fetch(scrapURL, { method: 'GET' })
-        .then(res => res.json())
+    return new Promise((resolve, reject) => {
+        FB.api('https://graph.facebook.com/', 'post', {
+            id: url,
+            scrape: true
+        }, (response) => {
+            return resolve();
+        });
+    })   .then(res => res.json())
 }
 

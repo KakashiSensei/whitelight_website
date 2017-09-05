@@ -34,13 +34,12 @@ export default class ResultPage extends Component {
         let shareURL = config.website + "/game/wallpost/" + this.gameID + "?image=" + this.imageName + "&title=" + this.title + "&description=" + this.description;
         // scrap the wallpost link here
         this.scrapHere(shareURL);
-
-        this.shareClicked();
     }
 
     scrapHere(shareURL){
         console.log("shareURL", shareURL);
         Requests.scarpImage(shareURL).then(()=>{
+            console.log("Page scrapped");
         })
     }
 

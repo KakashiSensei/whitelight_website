@@ -37,8 +37,8 @@ export default class ResultPage extends Component {
     }
 
     scrapHere(shareURL){
+        console.log("shareURL", shareURL);
         Requests.scarpImage(shareURL).then(()=>{
-            debugger;
         })
     }
 

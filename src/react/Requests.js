@@ -56,7 +56,8 @@ exports.getVideoDetails = (videoID) => {
 }
 
 exports.scarpImage = (url) => {
-    let scrapURL = `https://developers.facebook.com/tools/debug/sharing/?q=${url}`
+    let scrapURL = `https://developers.facebook.com/tools/debug/sharing/?q=${url}`;
+    console.log("scrapURL", scrapURL);
     return fetch(scrapURL, { method: 'GET' })
         .then(res => res.json())
 }

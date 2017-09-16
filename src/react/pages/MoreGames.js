@@ -9,6 +9,9 @@ import FacebookPagePlugin from "../components/FacebookPagePlugin";
 export default class MoreGames extends Component {
     totalCount;
     currentPage = 1;
+    nextGames = null;
+    previousGames = null;
+    currentGames = null;
 
     constructor(props) {
         super(props);
@@ -25,12 +28,28 @@ export default class MoreGames extends Component {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0);
-        Requests.getAllGames(Constants.PER_PAGE, this.currentPage)
+        if (this.currentGames === null) {
+            Requests.getAllGames(Constants.PER_PAGE, this.currentPage)
+                .then((data) => {
+                    this.totalCount = data.count;
+                    this.setState({ "games": data.items })
+                })
+        } else {
+            this.setState({ "games": this.currentGames });
+            this.currentGames = null;
+        }
+
+        Requests.getAllGames(Constants.PER_PAGE, this.currentPage + 1)
             .then((data) => {
-                this.totalCount = data.count;
-                this.setState({ "games": data.items })
+                this.nextGames = data.items;
             })
+
+        if (this.currentPage > 1) {
+            Requests.getAllGames(Constants.PER_PAGE, this.currentPage - 1)
+                .then((data) => {
+                    this.nextGames = data.items;
+                })
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -43,7 +62,20 @@ export default class MoreGames extends Component {
     }
 
     disableRedirection() {
-        return false
+        return false;
+    }
+
+    pushNewState(currentPage) {
+        if (currentPage > this.currentPage) {
+            this.currentGames = this.nextGames;
+        } else {
+            this.currentGames = this.previousGames;
+        }
+        this.nextGames = null;
+        this.previousGames = null;
+
+        let location = `/game?pn=${currentPage}`;
+        this.props.history.push(location);
     }
 
     render() {
@@ -56,20 +88,18 @@ export default class MoreGames extends Component {
                         Games
                         </div>
                     <div>
-                        <CardDeckComp games={this.state.games} contentPos="main"/>
+                        <CardDeckComp games={this.state.games} contentPos="main" />
                     </div>
                 </div>
 
             let previousButton = <li><a href='javascript:void(0);' className="disableLink">Previous</a></li>;
             if (this.currentPage > 1) {
-                let url = `/game?pn=${this.currentPage - 1}`;
-                previousButton = <li><Link to={url}>Previous</Link></li>
+                previousButton = <li onClick={() => this.pushNewState(this.currentPage - 1)}><Link to="#">Previous</Link></li>
             }
 
             let nextButton = <li><a href='javascript:void(0);' className="disableLink">Next</a></li>;
             if (this.currentPage * Constants.PER_PAGE < this.totalCount) {
-                let url = `/game?pn=${this.currentPage + 1}`;
-                nextButton = <li><Link to={url}>Next</Link></li>
+                nextButton = <li onClick={() => this.pushNewState(this.currentPage + 1)}><Link to="#">Next</Link></li>
             }
             pagerButton =
                 <ul className="pager">

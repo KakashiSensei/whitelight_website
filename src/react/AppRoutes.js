@@ -4,6 +4,7 @@ import {
     BrowserRouter as Router, useRouterHistory
 } from 'react-router-dom';
 import Routes from "./Routes";
+import ScrollToTop from "./ScrollToTop";
 
 if (process.env.BROWSER) {
     require('../asset/bgimage.png');
@@ -18,7 +19,9 @@ export default class AppRoutes extends Component {
     render() {
         return (
             <Router>
-                <Routes />
+                <ScrollToTop>
+                    <Routes />
+                </ScrollToTop>
             </Router>
         )
     }

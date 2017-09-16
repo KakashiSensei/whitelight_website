@@ -1,1 +1,1 @@
-exports.PER_PAGE = 9;
+exports.PER_PAGE = 8;

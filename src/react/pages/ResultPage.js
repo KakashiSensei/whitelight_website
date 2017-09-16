@@ -28,6 +28,7 @@ export default class ResultPage extends Component {
         this.shareClicked = this.shareClicked.bind(this);
         this.state = {
             recommendedGames: [],
+            sideRecommendationGames: [],
             outputText: null
         }
 
@@ -36,19 +37,25 @@ export default class ResultPage extends Component {
         this.scrapHere(shareURL);
     }
 
-    scrapHere(shareURL){
+    scrapHere(shareURL) {
         console.log("shareURL", shareURL);
-        Requests.scarpImage(shareURL).then(()=>{
+        Requests.scarpImage(shareURL).then(() => {
             console.log("Page scrapped");
         })
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0);
         Requests.getRecommendedGames(this.gameID, 4)
             .then((data) => {
                 this.setState({
                     recommendedGames: data
+                })
+            })
+
+        Requests.getRecommendedGames(this.gameID, 4)
+            .then((data) => {
+                this.setState({
+                    sideRecommendationGames: data
                 })
             })
 
@@ -75,7 +82,7 @@ export default class ResultPage extends Component {
         let style = { width: "0px", height: "0px", margin: "0px", padding: "0px" };
         return (
             <div>
-                <ResultHeader title={this.title} image={this.imageFullPath} url={this.props.location} description={this.description}/>
+                <ResultHeader title={this.title} image={this.imageFullPath} url={this.props.location} description={this.description} />
                 <div className="container">
                     <div className="row containerMargin">
                         <div className="col-md-8">
@@ -100,7 +107,7 @@ export default class ResultPage extends Component {
                                 <FacebookPagePlugin />
                             </div>
                             <div>
-                                <CardDeckComp games={this.state.recommendedGames} contentPos="side" />
+                                <CardDeckComp games={this.state.sideRecommendationGames} contentPos="side" />
                             </div>
                         </div>
                     </div>

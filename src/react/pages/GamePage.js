@@ -25,7 +25,8 @@ export default class GamePage extends Component {
         this.state = {
             questionLoaded: false,
             showLoader: false,
-            recommendedGames: []
+            recommendedGames: [],
+            sideRecommendationGames: []
         }
     }
 
@@ -37,7 +38,6 @@ export default class GamePage extends Component {
     }
 
     componentDidMount() {
-        window.scrollTo(0, 0);
         Requests.getGame(this.gameID)
             .then((data) => {
                 this.title = data.title;
@@ -52,6 +52,13 @@ export default class GamePage extends Component {
             .then((data) => {
                 this.setState({
                     recommendedGames: data
+                })
+            })
+
+        Requests.getRecommendedGames(this.gameID, 4)
+            .then((data) => {
+                this.setState({
+                    sideRecommendationGames: data
                 })
             })
     }
@@ -127,7 +134,7 @@ export default class GamePage extends Component {
                                 <FacebookPagePlugin />
                             </div>
                             <div>
-                                <CardDeckComp games={this.state.recommendedGames} contentPos="side" />
+                                <CardDeckComp games={this.state.sideRecommendationGames} contentPos="side" />
                             </div>
                         </div>
                     </div>

@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import * as AppHelper from "../helper/AppHelper";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
 
+if (process.env.BROWSER) {
+    require('../../css');
+}
+
 export default class MoreGames extends Component {
     totalCount;
     currentPage = 1;
@@ -109,7 +113,7 @@ export default class MoreGames extends Component {
         }
 
         return (
-            <div className="container recommendedMargin">
+            <div className="container">
                 <div className="row containerMargin">
                     <div className="col-md-8">
                         {gameComponent}

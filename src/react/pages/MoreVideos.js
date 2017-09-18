@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import * as AppHelper from "../helper/AppHelper";
 import * as Constants from "../../Constants";
 
+if (process.env.BROWSER) {
+    require('../../css');
+}
+
 export default class MoreVideos extends Component {
     constructor(props) {
         super(props);

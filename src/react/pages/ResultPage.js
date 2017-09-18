@@ -7,6 +7,10 @@ import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import CardDeckComp from "../components/CardDeckComp";
 import * as Requests from "../Requests";
 
+if (process.env.BROWSER) {
+    require('../../css');
+}
+
 export default class ResultPage extends Component {
     title;
     gameID;

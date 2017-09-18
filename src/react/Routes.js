@@ -12,6 +12,11 @@ import NavBarComp from './components/NavBarComp';
 import FooterComp from './components/FooterComp';
 
 if (process.env.BROWSER) {
+    require('../css');
+    require('../asset/font/Molleat.otf');
+}
+
+if (process.env.BROWSER) {
     var ReactGA = require('react-ga');
     ReactGA.initialize('UA-101643128-1', {
         debug: false,

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import HomeHeader from "../headers/HomeHeader";
 
+if (process.env.BROWSER) {
+    require('../../css');
+}
+
 export default class PrivacyPage extends Component {
     constructor(props) {
         super(props);

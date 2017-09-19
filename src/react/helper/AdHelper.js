@@ -10,5 +10,7 @@ exports.addAd = (d) => {
     var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true;
     var p = 'https:' == document.location.protocol ? 'https' : 'http';
     s.src = p + "://api.content-ad.net/Scripts/widget2.aspx?" + qs;
-    d.getElementById("contentad406263").appendChild(s);
+    if (d.getElementById("contentad406263").childNodes.length === 0) {
+        d.getElementById("contentad406263").appendChild(s);
+    }
 }

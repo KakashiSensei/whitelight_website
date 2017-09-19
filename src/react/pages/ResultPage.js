@@ -6,6 +6,7 @@ import ImageResultComp from "../components/ImageResultComp";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import CardDeckComp from "../components/CardDeckComp";
 import * as Requests from "../Requests";
+import AdHelper from "../helper/AdHelper";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -71,6 +72,9 @@ export default class ResultPage extends Component {
                     outputText: outputText
                 })
             })
+
+        // add the add widget
+        AdHelper.addAd(document);
     }
 
     shareClicked(e) {
@@ -104,6 +108,8 @@ export default class ResultPage extends Component {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="contentad406263" className="row">
                             </div>
                         </div>
                         <div className="col-md-4 recommendedMargin">

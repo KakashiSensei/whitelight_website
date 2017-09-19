@@ -7,6 +7,7 @@ import * as AppHelper from "../helper/AppHelper";
 import CardDeckComp from "../components/CardDeckComp";
 import FacebookHelper from "../helper/FacebookHelper";
 import LoaderComp from "../components/LoaderComp";
+import AdHelper from "../helper/AdHelper";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -61,6 +62,9 @@ export default class GamePage extends Component {
                     sideRecommendationGames: data
                 })
             })
+
+        // add the add widget
+        AdHelper.addAd(document);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -121,12 +125,14 @@ export default class GamePage extends Component {
                                     <div className="row">
                                         <div className="topic">
                                             MORE GAMES
-                                    </div>
+                                        </div>
                                         <div>
                                             <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="contentad406263" className="row">
                             </div>
                         </div>
                         <div className="col-md-4 recommendedMargin">

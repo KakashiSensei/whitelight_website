@@ -6,6 +6,7 @@ import * as config from "../../config";
 import * as Requests from "../Requests";
 import FacebookPagePlugin from "../components/FacebookPagePlugin";
 import CardDeckComp from "../components/CardDeckComp";
+import AdHelper from "../helper/AdHelper";
 
 if (process.env.BROWSER) {
     require('../../css');
@@ -69,6 +70,9 @@ export default class WallPostPage extends Component {
                     sideRecommendationGames: data
                 })
             })
+
+        // add the add widget
+        AdHelper.addAd(document);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -128,12 +132,14 @@ export default class WallPostPage extends Component {
                                     <div className="row">
                                         <div className="topic">
                                             MORE GAMES
-                                </div>
+                                        </div>
                                         <div>
                                             <CardDeckComp games={this.state.recommendedGames} contentPos="recommended" />
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="contentad406263" className="row">
                             </div>
                         </div>
                         <div className="col-md-4 recommendedMargin">

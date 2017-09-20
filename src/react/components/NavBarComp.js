@@ -4,7 +4,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 export default class NavBarComp extends Component {
     render() {
         return (
-            <Navbar className="brand-font addShadow">
+            <Navbar id="navBar" className="brand-font addShadow">
                 <div className="container">
                     <div className="row">
                         <NavbarBrand href="/">White Light</NavbarBrand>

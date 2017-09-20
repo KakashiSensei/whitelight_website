@@ -4,7 +4,8 @@ import { withRouter } from 'react-router'
 class ScrollToTop extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.location !== prevProps.location) {
-            window.scrollTo(0, 0)
+            window.location.hash = '#navBar';
+            window.scrollTo(0, 0);
         }
     }
 

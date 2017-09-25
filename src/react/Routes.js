@@ -8,6 +8,7 @@ import PrivacyPage from './pages/PrivacyPage';
 import ContactUsPage from './pages/ContactUsPage';
 import MoreGames from './pages/MoreGames';
 import MoreVideos from './pages/MoreVideos';
+import GoogleVerification from './pages/GoogleVerification';
 import NavBarComp from './components/NavBarComp';
 import FooterComp from './components/FooterComp';
 
@@ -39,6 +40,7 @@ export default class Routes extends Component {
                 <Route path="/" component={logPageView} />
                 <Switch>
                     <Route exact path="/" component={HomePage} />
+                    <Route exact path="/google91db4ea908ce0a1f.html" component={GoogleVerification} />
                     <Route exact path="/game" component={MoreGames} />
                     <Route exact path="/video" component={MoreVideos} />
                     <Route exact path="/game/:id" component={GamePage} />

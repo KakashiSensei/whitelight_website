@@ -38,6 +38,10 @@ module.exports = {
                 })
             },
             {
+                test: /\.(html)$/,
+                loader: "file-loader?name=[name].[ext]"
+            },
+            {
                 test: /\.(jpe?g|png|gif)$/i,
                 loader: "file-loader?name=src/asset/[name].[ext]"
             },
